@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 265350176}
-  force: 1
+  force: -1
   player1RectImage: {fileID: 757295930}
   zFactor: 1
   startPosition: {x: 0, y: 1, z: -9}
@@ -616,7 +616,7 @@ MonoBehaviour:
   rb: {fileID: 712612789}
   force: 1
   player2RectImage: {fileID: 2008382705}
-  zFactor: -1
+  zFactor: 1
   startPosition: {x: 0, y: 1, z: 9}
 --- !u!1 &740384592
 GameObject:
@@ -701,7 +701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &757295929
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1642,7 +1642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2008382704
 RectTransform:
   m_ObjectHideFlags: 0

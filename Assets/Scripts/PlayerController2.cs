@@ -21,9 +21,9 @@ public class PlayerController2 : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && player2RectImage.GetComponent<RectTransform>().rect.Contains(Input.mousePosition))
+        if (Input.GetMouseButtonDown(0) && Camera.main.ScreenToViewportPoint(Input.mousePosition).y >= 0.5)
         {
-            Debug.Log("2: " + player2RectImage.GetComponent<RectTransform>().rect.Contains(Input.mousePosition));
+            Debug.Log("1: " + Camera.main.ScreenToViewportPoint(Input.mousePosition));
             startSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
         }
 

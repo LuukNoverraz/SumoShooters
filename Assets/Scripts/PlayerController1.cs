@@ -21,9 +21,9 @@ public class PlayerController1 : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && player1RectImage.GetComponent<RectTransform>().rect.Contains(Input.mousePosition))
+        if (Input.GetMouseButtonDown(0) && Camera.main.ScreenToViewportPoint(Input.mousePosition).y <= 0.5)
         {
-            Debug.Log("1: " + player1RectImage.GetComponent<RectTransform>().rect.Contains(Input.mousePosition));
+            Debug.Log("1: " + Camera.main.ScreenToViewportPoint(Input.mousePosition));
             startSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
         }
 
@@ -49,7 +49,7 @@ public class PlayerController1 : MonoBehaviour
         Vector3 swipe = endSwipe - startSwipe;
         swipe.z = swipe.y / zFactor;
         swipe.y = 0.0f;
-        rb.AddForce(swipe * (-force * shootLaunch), ForceMode.Impulse);
+        rb.AddForce(swipe * (force * shootLaunch), ForceMode.Impulse);
     }
  
     private void OnMouseDown()
