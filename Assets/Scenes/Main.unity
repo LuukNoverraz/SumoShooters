@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -88,7 +88,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 086b0753d7d45cb45b4c9134495ddb10,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -336,7 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 265350176}
-  force: -1
+  force: 1.75
   player1RectImage: {fileID: 757295930}
   zFactor: 1
   startPosition: {x: 0, y: 1, z: -9}
@@ -614,7 +615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 712612789}
-  force: 1
+  force: 1.75
   player2RectImage: {fileID: 2008382705}
   zFactor: 1
   startPosition: {x: 0, y: 1, z: 9}
@@ -1293,13 +1294,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250181242}
-  m_LocalRotation: {x: 0, y: 0.8724961, z: -0.48862112, w: 0}
+  m_LocalRotation: {x: 0.8724961, y: 0, z: 0, w: 0.48862112}
   m_LocalPosition: {x: 0, y: 20.5, z: 16.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 58.5, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 58.5, y: 180, z: 180}
 --- !u!1 &1615174832
 GameObject:
   m_ObjectHideFlags: 0

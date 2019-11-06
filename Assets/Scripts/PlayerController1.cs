@@ -27,7 +27,7 @@ public class PlayerController1 : MonoBehaviour
             startSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && Camera.main.ScreenToViewportPoint(Input.mousePosition).y <= 0.5)
         {
             endSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
             // if (isTarget == true)
