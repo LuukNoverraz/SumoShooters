@@ -14,6 +14,7 @@ public class PlayerController1 : MonoBehaviour
     public Vector3 startPosition;
     private Vector2 startSwipe;
     private Vector2 endSwipe;
+    public Text blueText;
 
     void Start()
     {
