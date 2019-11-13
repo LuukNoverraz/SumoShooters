@@ -342,19 +342,6 @@ MonoBehaviour:
   rb: {fileID: 265350176}
   force: 1.25
   player1RectImage: {fileID: 0}
-  blueText: {fileID: 1228833452}
-  redWin: {fileID: 1964592287}
-  blueWin: {fileID: 1333575367}
-  restartText:
-  - {fileID: 2018188132}
-  - {fileID: 1531787291}
-  colorList:
-  - 0.9803922
-  - 0.1333333
-  - 0.1333333
-  - 0.09019608
-  - 0.2862745
-  - 1
 --- !u!1 &359602782
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,19 +617,6 @@ MonoBehaviour:
   rb: {fileID: 712612789}
   force: 1.25
   player2RectImage: {fileID: 0}
-  redText: {fileID: 1120907093}
-  redWin: {fileID: 1964592287}
-  blueWin: {fileID: 1333575367}
-  restartText:
-  - {fileID: 2018188132}
-  - {fileID: 1531787291}
-  colorList:
-  - 0.9803922
-  - 0.1333333
-  - 0.1333333
-  - 0.09019608
-  - 0.2862745
-  - 1
 --- !u!1 &740384592
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,6 +733,20 @@ MonoBehaviour:
   - {fileID: 1228833451}
   powerUpPrefab: {fileID: 6956600042576010909, guid: fa4c7cfbbd5e9614a8f9423f7b32f9f4,
     type: 3}
+  redText: {fileID: 1120907093}
+  blueText: {fileID: 1228833452}
+  redWin: {fileID: 1964592287}
+  blueWin: {fileID: 1333575367}
+  restartText:
+  - {fileID: 2018188132}
+  - {fileID: 1531787291}
+  colorList:
+  - 0.9811321
+  - 0.1342115
+  - 0.1342115
+  - 0.08962262
+  - 0.2860587
+  - 1
 --- !u!1001 &1035683932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1534,3 +1522,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018188130}
   m_CullTransparentMesh: 0
+--- !u!1001 &2826990072108323199
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2826990073240753289, guid: fa4c7cfbbd5e9614a8f9423f7b32f9f4,
+        type: 3}
+      propertyPath: m_Name
+      value: Power-Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826990073240753281, guid: fa4c7cfbbd5e9614a8f9423f7b32f9f4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826990073240753281, guid: fa4c7cfbbd5e9614a8f9423f7b32f9f4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826990073240753281, guid: fa4c7cfbbd5e9614a8f9423f7b32f9f4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826990073240753281, guid: fa4c7cfbbd5e9614a8f9423f7b32f9f4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826990073240753281, guid: fa4c7cfbbd5e9614a8f9423f7b32f9f4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826990073240753281, guid: fa4c7cfbbd5e9614a8f9423f7b32f9f4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826990073240753281, guid: fa4c7cfbbd5e9614a8f9423f7b32f9f4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826990073240753281, guid: fa4c7cfbbd5e9614a8f9423f7b32f9f4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826990073240753281, guid: fa4c7cfbbd5e9614a8f9423f7b32f9f4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826990073240753281, guid: fa4c7cfbbd5e9614a8f9423f7b32f9f4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826990073240753281, guid: fa4c7cfbbd5e9614a8f9423f7b32f9f4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fa4c7cfbbd5e9614a8f9423f7b32f9f4, type: 3}

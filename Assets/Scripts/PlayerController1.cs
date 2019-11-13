@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class PlayerController1 : MonoBehaviour
 {
@@ -13,27 +12,9 @@ public class PlayerController1 : MonoBehaviour
     private bool player1Launching = false;
     private Vector2 startSwipe;
     private Vector2 endSwipe;
-    public Text blueText;
-    public Text redWin;
-    public Text blueWin;
-    public Text[] restartText;
-    int blueScore = 0;
-    public float[] colorList;
+
     void Update()
     {
-        blueText.text = "SCORE: " + blueScore;
-        if (blueScore >= 3)
-        {
-            redWin.text = blueWin.text = "BLUE WINS";
-            redWin.color = blueWin.color = new Color(colorList[3], colorList[4], colorList[5], 1.0f);
-            restartText[0].color = restartText[1].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-            Time.timeScale = 0;
-            if (Input.GetMouseButtonDown(0))
-            {
-                Time.timeScale = 1;
-                SceneManager.LoadScene("LocalMultiplayer");
-            }
-        }
         if (Input.GetMouseButtonDown(0) && Camera.main.ScreenToViewportPoint(Input.mousePosition).y <= 0.5)
         {
             startSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
@@ -51,7 +32,7 @@ public class PlayerController1 : MonoBehaviour
         {
             transform.position = new Vector3(0.0f, 2.0f, -2.0f);
             rb.velocity = Vector3.zero;
-            blueScore++;
+            GameController.blueScore++;
         }
     }
     void Swipe()
