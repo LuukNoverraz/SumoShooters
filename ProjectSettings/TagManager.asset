@@ -16,6 +16,10 @@ TagManager:
   - 
   - 
   - PostProcessing
+  - Player1Only
+  - Player2Only
+  - SizePowerUp
+  - FloatPowerUp
   - 
   - 
   - 
@@ -33,12 +37,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player1
+  - Player2
   m_SortingLayers:
   - name: Default
     uniqueID: 0

@@ -7,8 +7,6 @@ public class PlayerController1 : MonoBehaviour
 {
     public Rigidbody rb;
     public float force;
-    public Image player1RectImage;
-    private float shootLaunch = 1f;
     private bool player1Launching = false;
     private Vector2 startSwipe;
     private Vector2 endSwipe;
@@ -32,7 +30,7 @@ public class PlayerController1 : MonoBehaviour
         {
             transform.position = new Vector3(0.0f, 2.0f, -2.0f);
             rb.velocity = Vector3.zero;
-            GameController.blueScore++;
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().blueScore++;
         }
     }
     void Swipe()
@@ -40,20 +38,6 @@ public class PlayerController1 : MonoBehaviour
         Vector3 swipe = endSwipe - startSwipe;
         swipe.z = swipe.y;
         swipe.y = 0.0f;
-        rb.AddForce(swipe * (force * shootLaunch), ForceMode.Impulse);
-    }
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "PowerUp")
-        {
-            Destroy(collision.gameObject);
-            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-            StartCoroutine(PowerUpTimer());
-        }
-    }
-    IEnumerator PowerUpTimer() 
-    {
-        yield return new WaitForSeconds(3);
-        transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+        rb.AddForce(swipe * force, ForceMode.Impulse);
     }
 }
