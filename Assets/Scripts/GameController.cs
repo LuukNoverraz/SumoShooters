@@ -4,8 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+public enum PlayState
+{
+    Play,
+    Pause
+}
 public class GameController : MonoBehaviour
 {
+    public PlayState currentPlayState;
+    public Image pausePlayImage;
+    public Sprite pauseSprite;
+    public Sprite playSprite;
+    public bool pausing = false;
     public Transform mainLightTransform;
     public RectTransform borderTransform;
     public RectTransform[] scoreTexts;
@@ -17,9 +27,9 @@ public class GameController : MonoBehaviour
     public Text[] restartText;
     public int redScore = 0;
     public int blueScore = 0;
-    int[] powerUps;
     public float[] colorList;
     bool spawning = false;
+
 
     void Start()
     {
@@ -62,6 +72,30 @@ public class GameController : MonoBehaviour
         {
             Invoke("PowerUpSpawn", Random.Range(6, 12));
             spawning = true;
+        }
+    }
+    public void ChangePlayState()
+    {
+        if (currentPlayState == PlayState.Play)
+        {
+            currentPlayState = PlayState.Pause;
+        }
+        else 
+        {
+            currentPlayState = PlayState.Play;
+        }
+        switch(currentPlayState)
+        {
+            case PlayState.Pause:
+                pausePlayImage.sprite = playSprite;
+                pausing = true;
+                Time.timeScale = 0;
+                break;
+            case PlayState.Play:
+                pausePlayImage.sprite = pauseSprite;
+                pausing = false;
+                Time.timeScale = 1;
+                break;
         }
     }
     void PowerUpSpawn()

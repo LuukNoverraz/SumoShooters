@@ -11,16 +11,21 @@ public class PlayerController2 : MonoBehaviour
     private bool player2Launching = false;
     private Vector2 startSwipe;
     private Vector2 endSwipe;
+    public GameController gameController;
 
+    void Start()
+    {
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+    }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && Camera.main.ScreenToViewportPoint(Input.mousePosition).y >= 0.5)
+        if (Input.GetMouseButtonDown(0) && gameController.pausing == false && Camera.main.ScreenToViewportPoint(Input.mousePosition).y >= 0.5)
         {
             startSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
             player2Launching = true;
         }
 
-        if (Input.GetMouseButtonUp(0) && player2Launching)
+        if (Input.GetMouseButtonUp(0) && gameController.pausing == false && player2Launching)
         {
             endSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
             Swipe();
@@ -31,7 +36,7 @@ public class PlayerController2 : MonoBehaviour
         {
             transform.position = new Vector3(0.0f, 2.0f, 2.0f);
             rb.velocity = Vector3.zero;
-            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().redScore++;
+            gameController.redScore++;
         }
     }
     void Swipe()
