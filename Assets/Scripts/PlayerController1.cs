@@ -18,19 +18,6 @@ public class PlayerController1 : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && gameController.pausing == false && Camera.main.ScreenToViewportPoint(Input.mousePosition).y <= 0.5)
-        {
-            startSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-            player1Launching = true;
-        }
-
-        if (Input.GetMouseButtonUp(0) && gameController.pausing == false && player1Launching)
-        {
-            endSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-            Swipe();
-            player1Launching = false;
-        }
-
         if (transform.position.y < -5.0f)
         {
             transform.position = new Vector3(0.0f, 2.0f, -2.0f);
@@ -38,6 +25,26 @@ public class PlayerController1 : MonoBehaviour
             gameController.blueScore++;
         }
     }
+
+    void BeginShoot()
+    {
+        if (gameController.pausing == false)
+        {
+            startSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+            player1Launching = true;
+        }
+    }
+
+    void EndShoot()
+    {
+        if (gameController.pausing == false && player1Launching)
+        {
+            endSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+            Swipe();
+            player1Launching = false;
+        }
+    }
+    
     void Swipe()
     {
         Vector3 swipe = endSwipe - startSwipe;

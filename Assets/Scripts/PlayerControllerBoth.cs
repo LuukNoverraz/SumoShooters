@@ -17,14 +17,6 @@ public class PlayerControllerBoth : MonoBehaviour
     void Start() {
         mat = GetComponent<Renderer>().material;
     }
-    void OnTouchDown()
-    {
-        mat.color = selectedColor;
-    }  
-    void OnTouchUp()
-    {
-        mat.color = defaultColor;
-    }
     void OnTouchStay()
     {
         mat.color = selectedColor;

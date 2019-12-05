@@ -40,16 +40,16 @@ public class TouchInput : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    recipient.SendMessage("OnTouchDown", hit.point, SendMessageOptions.DontRequireReceiver);
+                    recipient.SendMessage("BeginShoot", hit.point, SendMessageOptions.DontRequireReceiver);
                 }
                 if (Input.GetMouseButtonUp(0))
                 {
-                    recipient.SendMessage("OnTouchUp", hit.point, SendMessageOptions.DontRequireReceiver);
+                    recipient.SendMessage("EndShoot", hit.point, SendMessageOptions.DontRequireReceiver);
                 }
-                if (Input.GetMouseButton(0))
-                {
-                    recipient.SendMessage("OnTouchStay", hit.point, SendMessageOptions.DontRequireReceiver);
-                }
+                // if (Input.GetMouseButton(0))
+                // {
+                //     recipient.SendMessage("OnTouchStay", hit.point, SendMessageOptions.DontRequireReceiver);
+                // }
                 
                 foreach(GameObject g in touchesOld)
                 {
@@ -83,17 +83,16 @@ public class TouchInput : MonoBehaviour
 
                 if (touch.phase == TouchPhase.Began)
                 {
-                    Debug.Log(touch.position);
-                    recipient.SendMessage("OnTouchDown", hit.point, SendMessageOptions.DontRequireReceiver);
+                    recipient.SendMessage("BeginShoot", hit.point, SendMessageOptions.DontRequireReceiver);
                 }
                 if (touch.phase == TouchPhase.Ended)
                 {
-                    recipient.SendMessage("OnTouchUp", hit.point, SendMessageOptions.DontRequireReceiver);
+                    recipient.SendMessage("EndShoot", hit.point, SendMessageOptions.DontRequireReceiver);
                 }
-                if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
-                {
-                    recipient.SendMessage("OnTouchStay", hit.point, SendMessageOptions.DontRequireReceiver);
-                }
+                // if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
+                // {
+                //     recipient.SendMessage("OnTouchStay", hit.point, SendMessageOptions.DontRequireReceiver);
+                // }
                 if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Moved)
                 {
                     recipient.SendMessage("OnTouchExit", hit.point, SendMessageOptions.DontRequireReceiver);
