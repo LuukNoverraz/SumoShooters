@@ -6,7 +6,33 @@ public class PlayerControllerBoth : MonoBehaviour
 {
     public Light playerGlow;
     public ParticleSystem floatParticle;
+    public ParticleSystem nuclearExplosion;
     public Rigidbody rb;
+    public GameObject player1;
+    public GameObject player2;
+    public Color defaultColor;
+    public Color selectedColor;
+    private Material mat;
+
+    void Start() {
+        mat = GetComponent<Renderer>().material;
+    }
+    void OnTouchDown()
+    {
+        mat.color = selectedColor;
+    }  
+    void OnTouchUp()
+    {
+        mat.color = defaultColor;
+    }
+    void OnTouchStay()
+    {
+        mat.color = selectedColor;
+    }
+    void OnTouchExit()
+    {
+        mat.color = defaultColor;
+    }
     void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "PowerUp")
@@ -19,11 +45,11 @@ public class PlayerControllerBoth : MonoBehaviour
                 rb.mass = 1.0f;
                 if (gameObject.layer == 30)
                 {
-                    GameObject.Find("Player 1").GetComponent<PlayerController1>().force = 20.0f;
+                    player1.GetComponent<PlayerController1>().force = 20.0f;
                 }
                 if (gameObject.layer == 31)
                 {
-                    GameObject.Find("Player 2").GetComponent<PlayerController2>().force = 20.0f;
+                    player2.GetComponent<PlayerController2>().force = 20.0f;
                 }
             }
             if (collision.gameObject.layer == 12)
@@ -47,11 +73,11 @@ public class PlayerControllerBoth : MonoBehaviour
         floatParticle.startLifetime = 0;
         if (gameObject.layer == 30)
         {
-            GameObject.Find("Player 1").GetComponent<PlayerController1>().force = 1.25f;
+            player1.GetComponent<PlayerController1>().force = 1.25f;
         }
         if (gameObject.layer == 31)
         {
-            GameObject.Find("Player 2").GetComponent<PlayerController2>().force = 1.25f;
+            player2.GetComponent<PlayerController2>().force = 1.25f;
         }
     }
 }

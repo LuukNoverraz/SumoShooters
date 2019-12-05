@@ -34,9 +34,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - Touch Input Main
+  - Touch Input 1
+  - Touch Input 2
   - Player1
   - Player2
   m_SortingLayers:

@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public enum PlayState
 {
-    Play,
-    Pause
+    PLAY,
+    PAUSE
 }
 public class GameController : MonoBehaviour
 {
@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
     public int blueScore = 0;
     public float[] colorList;
     bool spawning = false;
-
+    public GameObject map;
 
     void Start()
     {
@@ -76,22 +76,22 @@ public class GameController : MonoBehaviour
     }
     public void ChangePlayState()
     {
-        if (currentPlayState == PlayState.Play)
+        if (currentPlayState == PlayState.PLAY)
         {
-            currentPlayState = PlayState.Pause;
+            currentPlayState = PlayState.PAUSE;
         }
         else 
         {
-            currentPlayState = PlayState.Play;
+            currentPlayState = PlayState.PLAY;
         }
         switch(currentPlayState)
         {
-            case PlayState.Pause:
+            case PlayState.PAUSE:
                 pausePlayImage.sprite = playSprite;
                 pausing = true;
                 Time.timeScale = 0;
                 break;
-            case PlayState.Play:
+            case PlayState.PLAY:
                 pausePlayImage.sprite = pauseSprite;
                 pausing = false;
                 Time.timeScale = 1;

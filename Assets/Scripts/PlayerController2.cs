@@ -7,7 +7,6 @@ public class PlayerController2 : MonoBehaviour
 {
     public Rigidbody rb;
     public float force;
-    private float shootLaunch = 1f;
     private bool player2Launching = false;
     private Vector2 startSwipe;
     private Vector2 endSwipe;
@@ -44,6 +43,6 @@ public class PlayerController2 : MonoBehaviour
         Vector3 swipe = endSwipe - startSwipe;
         swipe.z = swipe.y;
         swipe.y = 0.0f;
-        rb.AddForce(swipe * (force * shootLaunch), ForceMode.Impulse);
+        rb.AddForce(swipe * force, ForceMode.Impulse);
     }
 }
