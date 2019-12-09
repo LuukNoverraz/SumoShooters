@@ -754,6 +754,7 @@ MonoBehaviour:
     m_Bits: 0
   player1: {fileID: 265350175}
   player2: {fileID: 712612788}
+  gameController: {fileID: 0}
 --- !u!1 &594741872
 GameObject:
   m_ObjectHideFlags: 0

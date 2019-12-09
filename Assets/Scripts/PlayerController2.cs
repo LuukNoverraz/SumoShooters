@@ -7,7 +7,6 @@ public class PlayerController2 : MonoBehaviour
 {
     public Rigidbody rb;
     public float force;
-    private bool player2Launching = false;
     private Vector2 startSwipe;
     private Vector2 endSwipe;
     public GameController gameController;
@@ -18,19 +17,6 @@ public class PlayerController2 : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && gameController.pausing == false && Camera.main.ScreenToViewportPoint(Input.mousePosition).y >= 0.5)
-        {
-            startSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-            player2Launching = true;
-        }
-
-        if (Input.GetMouseButtonUp(0) && gameController.pausing == false && player2Launching)
-        {
-            endSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-            Swipe();
-            player2Launching = false;
-        }
-
         if (transform.position.y < -5.0f)
         {
             transform.position = new Vector3(0.0f, 2.0f, 2.0f);
@@ -38,11 +24,30 @@ public class PlayerController2 : MonoBehaviour
             gameController.redScore++;
         }
     }
+
+    void BeginShoot()
+    {
+        if (gameController.pausing == false)
+        {
+            startSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        }
+    }
+
+    void EndShoot()
+    {
+        if (gameController.pausing == false)
+        {
+            endSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+            Swipe();
+        }
+    }
+    
     void Swipe()
     {
         Vector3 swipe = endSwipe - startSwipe;
         swipe.z = swipe.y;
         swipe.y = 0.0f;
         rb.AddForce(swipe * force, ForceMode.Impulse);
+        Debug.Log("Added P2 Force");
     }
 }

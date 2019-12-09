@@ -7,7 +7,6 @@ public class PlayerController1 : MonoBehaviour
 {
     public Rigidbody rb;
     public float force;
-    private bool player1Launching = false;
     private Vector2 startSwipe;
     private Vector2 endSwipe;
     public GameController gameController;
@@ -31,17 +30,15 @@ public class PlayerController1 : MonoBehaviour
         if (gameController.pausing == false)
         {
             startSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-            player1Launching = true;
         }
     }
 
     void EndShoot()
     {
-        if (gameController.pausing == false && player1Launching)
+        if (gameController.pausing == false)
         {
             endSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
             Swipe();
-            player1Launching = false;
         }
     }
     
@@ -51,5 +48,6 @@ public class PlayerController1 : MonoBehaviour
         swipe.z = swipe.y;
         swipe.y = 0.0f;
         rb.AddForce(swipe * force, ForceMode.Impulse);
+        Debug.Log("Added P1 Force");
     }
 }
