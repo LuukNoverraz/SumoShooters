@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -237,7 +237,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fe7b83af69e1f43920ecce036c73e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Forwards: {fileID: 445129838557891385, guid: 9010c10e5ac5c8947b9800cc2c12a810, type: 3}
+  currentPlayState: 0
+  pausePlayImage: {fileID: 0}
+  pauseSprite: {fileID: 0}
+  playSprite: {fileID: 0}
+  pausing: 0
   mainLightTransform: {fileID: 0}
   borderTransform: {fileID: 0}
   scoreTexts: []
@@ -250,6 +254,7 @@ MonoBehaviour:
   redScore: 0
   blueScore: 0
   colorList: []
+  map: {fileID: 0}
 --- !u!1 &50530865
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,8 +685,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 495689097}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 830728500}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1241,7 +1246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &830728500
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1259,6 +1264,8 @@ RectTransform:
   - {fileID: 1012039458}
   - {fileID: 995295815}
   - {fileID: 1114745492}
+  - {fileID: 280685867}
+  - {fileID: 859382886}
   m_Father: {fileID: 50530869}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1364,8 +1371,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 900205661}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 830728500}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2490,7 +2497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2064991176
 RectTransform:
   m_ObjectHideFlags: 0
