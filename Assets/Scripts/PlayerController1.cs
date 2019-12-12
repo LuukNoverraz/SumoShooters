@@ -27,7 +27,7 @@ public class PlayerController1 : MonoBehaviour
 
     void BeginShoot()
     {
-        if (gameController.pausing == false)
+        if (!gameController.pausing)
         {
             startSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
         }
@@ -35,7 +35,7 @@ public class PlayerController1 : MonoBehaviour
 
     void EndShoot()
     {
-        if (gameController.pausing == false)
+        if (!gameController.pausing)
         {
             endSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
             Swipe();

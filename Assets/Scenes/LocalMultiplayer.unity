@@ -371,8 +371,6 @@ MonoBehaviour:
   rb: {fileID: 265350176}
   player1: {fileID: 265350175}
   player2: {fileID: 712612788}
-  defaultColor: {r: 0.98039216, g: 0.13333334, b: 0.13333334, a: 0}
-  selectedColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1 &350073580
 GameObject:
   m_ObjectHideFlags: 0
@@ -5584,8 +5582,6 @@ MonoBehaviour:
   rb: {fileID: 712612789}
   player1: {fileID: 265350175}
   player2: {fileID: 712612788}
-  defaultColor: {r: 0.09019608, g: 0.28627452, b: 0.6431373, a: 0}
-  selectedColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1 &740384592
 GameObject:
   m_ObjectHideFlags: 0
@@ -11344,6 +11340,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: tokn map
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272366828986351829, guid: e5dbc46c035edc443b231d454c30d78e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4272366828986260725, guid: e5dbc46c035edc443b231d454c30d78e,
         type: 3}

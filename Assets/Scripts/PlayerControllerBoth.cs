@@ -10,21 +10,7 @@ public class PlayerControllerBoth : MonoBehaviour
     public Rigidbody rb;
     public GameObject player1;
     public GameObject player2;
-    public Color defaultColor;
-    public Color selectedColor;
-    private Material mat;
-
-    void Start() {
-        mat = GetComponent<Renderer>().material;
-    }
-    void OnTouchStay()
-    {
-        mat.color = selectedColor;
-    }
-    void OnTouchExit()
-    {
-        mat.color = defaultColor;
-    }
+    
     void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "PowerUp")
