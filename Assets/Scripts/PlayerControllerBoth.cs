@@ -51,11 +51,11 @@ public class PlayerControllerBoth : MonoBehaviour
         floatParticle.startLifetime = 0;
         if (gameObject.layer == 30)
         {
-            player1.GetComponent<PlayerController1>().force = 1.25f;
+            player1.GetComponent<PlayerController1>().force = 1.0f;
         }
         if (gameObject.layer == 31)
         {
-            player2.GetComponent<PlayerController2>().force = 1.25f;
+            player2.GetComponent<PlayerController2>().force = 1.0f;
         }
     }
 }

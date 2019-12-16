@@ -27,9 +27,9 @@ public class GameController : MonoBehaviour
     public Text[] restartText;
     public int redScore = 0;
     public int blueScore = 0;
+    public int maxScore;
     public float[] colorList;
     bool spawning = false;
-    public GameObject map;
 
     void Start()
     {
@@ -41,7 +41,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
         redText.text = "SCORE: " + redScore;
-        if (redScore >= 5)
+        if (redScore >= maxScore)
         {
             redWin.text = blueWin.text = "RED WINS";
             redWin.color = blueWin.color = new Color(colorList[0], colorList[1], colorList[2], 1.0f);
@@ -55,7 +55,7 @@ public class GameController : MonoBehaviour
         }
 
         blueText.text = "SCORE: " + blueScore;
-        if (blueScore >= 5)
+        if (blueScore >= maxScore)
         {
             redWin.text = blueWin.text = "BLUE WINS";
             redWin.color = blueWin.color = new Color(colorList[3], colorList[4], colorList[5], 1.0f);
@@ -98,6 +98,12 @@ public class GameController : MonoBehaviour
                 break;
         }
     }
+
+    public void LocalPlayButton()
+    {
+        SceneManager.LoadScene("LocalMultiplayer");
+    }
+
     void PowerUpSpawn()
     {
         if (GameObject.FindGameObjectWithTag("PowerUp") == null) 

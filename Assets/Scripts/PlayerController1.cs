@@ -25,7 +25,7 @@ public class PlayerController1 : MonoBehaviour
         }
     }
 
-    void BeginShoot()
+    public void BeginShoot()
     {
         if (!gameController.pausing)
         {
@@ -33,7 +33,7 @@ public class PlayerController1 : MonoBehaviour
         }
     }
 
-    void EndShoot()
+    public void EndShoot()
     {
         if (!gameController.pausing)
         {
@@ -48,6 +48,6 @@ public class PlayerController1 : MonoBehaviour
         swipe.z = swipe.y;
         swipe.y = 0.0f;
         rb.AddForce(swipe * force, ForceMode.Impulse);
-        Debug.Log("Added P1 Force");
+        // Debug.Log("Added P1 Force");
     }
 }

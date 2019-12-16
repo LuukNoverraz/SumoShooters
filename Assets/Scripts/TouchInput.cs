@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TouchInput : MonoBehaviour
 {
-    public LayerMask touchInputMask;
     private List<GameObject> touchList = new List<GameObject>();
     private GameObject[] touchesOld; 
     RaycastHit hit;
@@ -18,31 +17,35 @@ public class TouchInput : MonoBehaviour
     }
     void Update ()
     {
+        if (touchList.Count > 2 || Input.touchCount > 1)
+        {
+            // Debug.Log(touchList);
+            Debug.Log("HET ZOU MOETEN WERKEN");
+        }
+
         #if UNITY_EDITOR
             if ((Input.GetMouseButton(0) || Input.GetMouseButtonDown(0)) && !gameController.pausing)
             {
-                // touchesOld = new GameObject[touchList.Count];
-                // touchList.CopyTo(touchesOld);
-                // touchList.Clear();
             
                 Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    Debug.Log(ray.origin.y);
+                    // Debug.Log(ray.origin.y);
                     if (ray.origin.y <= 0)
                     {
                         recipient = player1;
                         touchList.Add(recipient);
-                        recipient.SendMessage("BeginShoot", hit.point, SendMessageOptions.DontRequireReceiver);
+                        player1.GetComponent<PlayerController1>().BeginShoot();
+                        // recipient.SendMessage("BeginShoot", hit.point, SendMessageOptions.DontRequireReceiver);
                     }
                     if (ray.origin.y >= 0)
                     {
                         recipient = player2;
                         touchList.Add(recipient);
-                        recipient.SendMessage("BeginShoot", hit.point, SendMessageOptions.DontRequireReceiver);
+                        player2.GetComponent<PlayerController2>().BeginShoot();
+                        // recipient.SendMessage("BeginShoot", hit.point, SendMessageOptions.DontRequireReceiver);
                     }
-                    // recipient.SendMessage("BeginShoot", hit.point, SendMessageOptions.DontRequireReceiver);
                 }
 
                 // foreach(GameObject g in touchesOld)
@@ -53,10 +56,12 @@ public class TouchInput : MonoBehaviour
                 //     }
                 // }
             }
-            
+
             if (Input.GetMouseButtonUp(0))
             {
+                Debug.Log(recipient + " EndShoot");
                 recipient.SendMessage("EndShoot", hit.point, SendMessageOptions.DontRequireReceiver);
+                touchList.Remove(recipient);
             }
 
             // if (Input.GetMouseButton(0))
@@ -67,10 +72,15 @@ public class TouchInput : MonoBehaviour
 
         if (Input.touchCount > 0 && !gameController.pausing)
         {
-            Debug.Log(Input.touchCount);
-            // touchesOld = new GameObject[touchList.Count];
-            // touchList.CopyTo(touchesOld);
-            // touchList.Clear();
+            // Debug.Log(Input.touchCount);
+            
+            // foreach(Touch touch in Input.touches)
+            // {
+            //     if (touch.phase == TouchPhase.Ended)
+            //     {
+            //         recipient.SendMessage("EndShoot", hit.point, SendMessageOptions.DontRequireReceiver);
+            //     }
+            // }
 
             foreach(Touch touch in Input.touches)
             {
@@ -78,7 +88,7 @@ public class TouchInput : MonoBehaviour
 
                 if (touch.phase == TouchPhase.Began)
                 {
-                    Debug.Log(ray.origin.y);
+                    // Debug.Log(ray.origin.y);
                     if (ray.origin.y <= 0)
                     {
                         recipient = player1;
@@ -91,12 +101,18 @@ public class TouchInput : MonoBehaviour
                         touchList.Add(recipient);
                         recipient.SendMessage("BeginShoot", hit.point, SendMessageOptions.DontRequireReceiver);
                     }
-                    // recipient.SendMessage("BeginShoot", hit.point, SendMessageOptions.DontRequireReceiver);
                 }
                 // if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
                 // {
-                //     recipient.SendMessage("OnTouchStay", hit.point, SendMessageOptions.DontRequireReceiver);
+                //    recipient.SendMessage("OnTouchStay", hit.point, SendMessageOptions.DontRequireReceiver);
                 // }
+                
+                if (touch.phase == TouchPhase.Ended)
+                {
+                    Debug.Log(recipient + " EndShoot");
+                    recipient.SendMessage("EndShoot", hit.point, SendMessageOptions.DontRequireReceiver);
+                }
+
                 if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Moved)
                 {
                     recipient.SendMessage("OnTouchExit", hit.point, SendMessageOptions.DontRequireReceiver);
@@ -109,13 +125,6 @@ public class TouchInput : MonoBehaviour
             //         g.SendMessage("OnTouchExit", hit.point, SendMessageOptions.DontRequireReceiver);
             //     }
             // }
-            foreach(Touch touch in Input.touches)
-            {
-                if (touch.phase == TouchPhase.Ended)
-                {
-                    recipient.SendMessage("EndShoot", hit.point, SendMessageOptions.DontRequireReceiver);
-                }
-            }
         }
     }
 }
