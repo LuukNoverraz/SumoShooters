@@ -21,7 +21,6 @@ public class PlayerController1 : MonoBehaviour
         {
             transform.position = new Vector3(0.0f, 2.0f, -2.0f);
             rb.velocity = Vector3.zero;
-            // transform.localRotation = Quaternion.identity;
             gameController.blueScore++;
         }
     }
