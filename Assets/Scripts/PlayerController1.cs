@@ -21,6 +21,7 @@ public class PlayerController1 : MonoBehaviour
         {
             transform.position = new Vector3(0.0f, 2.0f, -2.0f);
             rb.velocity = Vector3.zero;
+            // transform.localRotation = Quaternion.identity;
             gameController.blueScore++;
         }
     }
@@ -48,6 +49,5 @@ public class PlayerController1 : MonoBehaviour
         swipe.z = swipe.y;
         swipe.y = 0.0f;
         rb.AddForce(swipe * force, ForceMode.Impulse);
-        // Debug.Log("Added P1 Force");
     }
 }

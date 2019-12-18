@@ -10,7 +10,25 @@ public class PlayerControllerBoth : MonoBehaviour
     public Rigidbody rb;
     public GameObject player1;
     public GameObject player2;
+    public PlayerController1 playerController1;
+    public PlayerController2 playerController2;
+
+    public float multiplier;
     
+    void Start()
+    {
+        playerController1 = GameObject.Find("Player 1").GetComponent<PlayerController1>();
+        playerController2 = GameObject.Find("Player 2").GetComponent<PlayerController2>();
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Players")
+        {
+            Rigidbody playerCol = collision.gameObject.GetComponent<Rigidbody>();
+            playerCol.velocity = playerCol.velocity * multiplier;
+        }
+    }
+
     void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "PowerUp")

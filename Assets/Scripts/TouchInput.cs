@@ -20,7 +20,7 @@ public class TouchInput : MonoBehaviour
         if (touchList.Count > 2 || Input.touchCount > 1)
         {
             // Debug.Log(touchList);
-            Debug.Log("HET ZOU MOETEN WERKEN");
+            // Debug.Log("HET ZOU MOETEN WERKEN");
         }
 
         #if UNITY_EDITOR
@@ -59,7 +59,7 @@ public class TouchInput : MonoBehaviour
 
             if (Input.GetMouseButtonUp(0))
             {
-                Debug.Log(recipient + " EndShoot");
+                // Debug.Log(recipient + " EndShoot");
                 recipient.SendMessage("EndShoot", hit.point, SendMessageOptions.DontRequireReceiver);
                 touchList.Remove(recipient);
             }
@@ -109,7 +109,7 @@ public class TouchInput : MonoBehaviour
                 
                 if (touch.phase == TouchPhase.Ended)
                 {
-                    Debug.Log(recipient + " EndShoot");
+                    // Debug.Log(recipient + " EndShoot");
                     recipient.SendMessage("EndShoot", hit.point, SendMessageOptions.DontRequireReceiver);
                 }
 

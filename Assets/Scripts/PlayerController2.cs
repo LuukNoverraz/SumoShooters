@@ -48,6 +48,5 @@ public class PlayerController2 : MonoBehaviour
         swipe.z = swipe.y;
         swipe.y = 0.0f;
         rb.AddForce(swipe * force, ForceMode.Impulse);
-        // Debug.Log("Added P2 Force");
     }
 }
