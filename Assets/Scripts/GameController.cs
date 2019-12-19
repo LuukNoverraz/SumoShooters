@@ -30,10 +30,12 @@ public class GameController : MonoBehaviour
     public int maxScore;
     public float[] colorList;
     bool spawning = false;
+    public RectTransform stagePositioning;
 
     void Start()
     {
         mainLightTransform.rotation = Quaternion.Euler(new Vector3(50.0f, Mathf.Floor(Random.Range(0.0f, 360.0f)), 0));
+        stagePositioning.sizeDelta = new Vector2(Screen.width, Screen.height);
         borderTransform.sizeDelta = new Vector2(Screen.width, 10.0f);
         scoreTexts[0].sizeDelta = new Vector2(Screen.width - 20.0f, 30.0f);
         scoreTexts[1].sizeDelta = new Vector2(Screen.width - 100.0f, 30.0f);
