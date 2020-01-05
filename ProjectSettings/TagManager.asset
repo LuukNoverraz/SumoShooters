@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Players
   - PowerUp
+  - Border
   layers:
   - Default
   - TransparentFX

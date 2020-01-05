@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TouchInput : MonoBehaviour
 {
@@ -10,10 +11,12 @@ public class TouchInput : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
     GameObject recipient;
+    Scene currentScene;
     public GameController gameController;
     void Start()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();  
+        currentScene = SceneManager.GetActiveScene();
     }
     void Update ()
     {
@@ -36,15 +39,17 @@ public class TouchInput : MonoBehaviour
                     {
                         recipient = player1;
                         touchList.Add(recipient);
-                        player1.GetComponent<PlayerController1>().BeginShoot();
-                        // recipient.SendMessage("BeginShoot", hit.point, SendMessageOptions.DontRequireReceiver);
+                        // player1.GetComponent<PlayerController1>().BeginShoot();
+                        // player1.GetComponent<PlayerControllerOnline>().BeginShoot();
+                        recipient.SendMessage("BeginShoot", hit.point, SendMessageOptions.DontRequireReceiver);
                     }
                     if (ray.origin.y >= 0)
                     {
                         recipient = player2;
                         touchList.Add(recipient);
-                        player2.GetComponent<PlayerController2>().BeginShoot();
-                        // recipient.SendMessage("BeginShoot", hit.point, SendMessageOptions.DontRequireReceiver);
+                        // player2.GetComponent<PlayerController2>().BeginShoot();
+                        // player2.GetComponent<PlayerControllerOnline>().BeginShoot();
+                        recipient.SendMessage("BeginShoot", hit.point, SendMessageOptions.DontRequireReceiver);
                     }
                 }
 

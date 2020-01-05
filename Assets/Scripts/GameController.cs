@@ -18,32 +18,39 @@ public class GameController : MonoBehaviour
     public bool pausing = false;
     public Transform mainLightTransform;
     public RectTransform borderTransform;
-    public RectTransform[] scoreTexts;
+    public RectTransform[] stocksRect;
+    public Image[] player1Stocks;
+    public Image[] player2Stocks;
     public GameObject[] powerUpPrefab;
-    public Text redText;
-    public Text blueText;
     public Text redWin;
     public Text blueWin;
     public Text[] restartText;
-    public int redScore = 0;
-    public int blueScore = 0;
     public int maxScore;
     public float[] colorList;
+    public bool player1LifeLost = false;
+    public int player1DeathCount = 0;
+    public bool player2LifeLost = false;
+    public int player2DeathCount = 0;
     bool spawning = false;
-    public RectTransform stagePositioning;
+    Color32 player1Color;
+    Color32 player2Color;
 
     void Start()
     {
-        mainLightTransform.rotation = Quaternion.Euler(new Vector3(50.0f, Mathf.Floor(Random.Range(0.0f, 360.0f)), 0));
-        stagePositioning.sizeDelta = new Vector2(Screen.width, Screen.height);
+        player1Color = GameObject.Find("Player 1").GetComponent<MeshRenderer>().material.color;
+        player2Color = GameObject.Find("Player 2").GetComponent<MeshRenderer>().material.color;
+        for (int i = 0; i < 5; i++)
+        {
+            player1Stocks[i].color = new Color32(player1Color.r, player1Color.g, player1Color.b, player1Color.a);
+            player2Stocks[i].color = new Color32(player2Color.r, player2Color.g, player2Color.b, player2Color.a);
+        }
         borderTransform.sizeDelta = new Vector2(Screen.width, 10.0f);
-        scoreTexts[0].sizeDelta = new Vector2(Screen.width - 20.0f, 30.0f);
-        scoreTexts[1].sizeDelta = new Vector2(Screen.width - 100.0f, 30.0f);
+        mainLightTransform.rotation = Quaternion.Euler(new Vector3(50.0f, Mathf.Floor(Random.Range(0.0f, 360.0f)), 0));
+        stocksRect[0].sizeDelta = stocksRect[1].sizeDelta = new Vector2(Screen.width, Screen.height);
     }
     void Update()
     {
-        redText.text = "SCORE: " + redScore;
-        if (redScore >= maxScore)
+        if (player1DeathCount >= maxScore)
         {
             redWin.text = blueWin.text = "RED WINS";
             redWin.color = blueWin.color = new Color(colorList[0], colorList[1], colorList[2], 1.0f);
@@ -56,8 +63,7 @@ public class GameController : MonoBehaviour
             }
         }
 
-        blueText.text = "SCORE: " + blueScore;
-        if (blueScore >= maxScore)
+        if (player2DeathCount >= maxScore)
         {
             redWin.text = blueWin.text = "BLUE WINS";
             redWin.color = blueWin.color = new Color(colorList[3], colorList[4], colorList[5], 1.0f);
@@ -75,6 +81,7 @@ public class GameController : MonoBehaviour
             Invoke("PowerUpSpawn", Random.Range(6, 12));
             spawning = true;
         }
+
     }
     public void ChangePlayState()
     {
@@ -98,6 +105,22 @@ public class GameController : MonoBehaviour
                 pausing = false;
                 Time.timeScale = 1;
                 break;
+        }
+    }
+
+    public void Lifes()
+    {
+        if (player1LifeLost = true && player1DeathCount < 5)
+        {
+            Destroy(player1Stocks[player1DeathCount]);
+            player1LifeLost = false;
+            player1DeathCount++;
+        }
+        if (player2LifeLost = true && player2DeathCount < 5)
+        {
+            Destroy(player2Stocks[player2DeathCount]);
+            player2LifeLost = false;
+            player2DeathCount++;
         }
     }
 
