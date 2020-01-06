@@ -12,14 +12,20 @@ public class PlayerControllerBoth : MonoBehaviour
     public GameObject player2;
     public PlayerController1 playerController1;
     public PlayerController2 playerController2;
-
+    public Renderer renderer;
+    public ColorPicker colorPicker;
     public float multiplier;
     
     void Start()
     {
         playerController1 = GameObject.Find("Player 1").GetComponent<PlayerController1>();
         playerController2 = GameObject.Find("Player 2").GetComponent<PlayerController2>();
+        colorPicker.onValueChanged.AddListener(color =>
+        {
+            renderer.material.color = color;
+        });
     }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Players")
