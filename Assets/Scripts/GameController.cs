@@ -27,10 +27,10 @@ public class GameController : MonoBehaviour
     public Text[] restartText;
     public int maxScore;
     public float[] colorList;
-    public bool player1LifeLost = false;
-    public int player1DeathCount = 0;
-    public bool player2LifeLost = false;
-    public int player2DeathCount = 0;
+    [HideInInspector] public bool player1LifeLost = false;
+    [HideInInspector] public int player1DeathCount = 0;
+    [HideInInspector] public bool player2LifeLost = false;
+    [HideInInspector] public int player2DeathCount = 0;
     bool spawning = false;
     Color32 player1Color;
     Color32 player2Color;

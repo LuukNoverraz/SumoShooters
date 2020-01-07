@@ -6,7 +6,6 @@ public class PlayerControllerBoth : MonoBehaviour
 {
     public Light playerGlow;
     public ParticleSystem floatParticle;
-    public ParticleSystem nuclearExplosion;
     public Rigidbody rb;
     public GameObject player1;
     public GameObject player2;
@@ -23,7 +22,9 @@ public class PlayerControllerBoth : MonoBehaviour
         colorPicker.onValueChanged.AddListener(color =>
         {
             renderer.material.color = color;
+            PlayerPrefsX.SetColor("Color", color);
         });
+        renderer.material.color = PlayerPrefsX.GetColor("Color", new Color(0.0f, 0.0f, 0.0f, 1.0f));
     }
 
     void OnCollisionEnter(Collision collision)
