@@ -55,7 +55,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (player1DeathCount >= maxScore)
+        if (player2DeathCount >= maxScore)
         {
             redWin.text = blueWin.text = "RED WINS";
             redWin.color = blueWin.color = new Color(colorList[0], colorList[1], colorList[2], 1.0f);
@@ -68,7 +68,7 @@ public class GameController : MonoBehaviour
             }
         }
 
-        if (player2DeathCount >= maxScore)
+        if (player1DeathCount >= maxScore)
         {
             redWin.text = blueWin.text = "BLUE WINS";
             redWin.color = blueWin.color = new Color(colorList[3], colorList[4], colorList[5], 1.0f);
@@ -113,7 +113,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void Lifes()
+    public void LifeLostPlayer1()
     {
         if (player1LifeLost = true && player1DeathCount < 5)
         {
@@ -121,8 +121,13 @@ public class GameController : MonoBehaviour
             player1LifeLost = false;
             player1DeathCount++;
         }
+    }
+
+    public void LifeLostPlayer2()
+    {
         if (player2LifeLost = true && player2DeathCount < 5)
         {
+            Debug.Log(player2LifeLost);
             Destroy(player2Stocks[player2DeathCount]);
             player2LifeLost = false;
             player2DeathCount++;

@@ -25,12 +25,13 @@ public class PlayerController : MonoBehaviour
             if (gameObject.layer == 30)
             {
                 gameController.player1LifeLost = true;
+                gameController.LifeLostPlayer1();
             }
             if (gameObject.layer == 31)
             {
                 gameController.player2LifeLost = true;
+                gameController.LifeLostPlayer2();
             }
-            gameController.Lifes();
         }
     }
 

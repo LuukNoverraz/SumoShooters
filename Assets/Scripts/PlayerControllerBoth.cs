@@ -22,8 +22,6 @@ public class PlayerControllerBoth : MonoBehaviour
         playerController2 = GameObject.Find("Player 2").GetComponent<PlayerController>();
         colorPicker.onValueChanged.AddListener(color =>
         {
-            // Debug.Log(PlayerPrefs.HasKey("Color"));
-            // Debug.Log(PlayerPrefsX.GetColor("Color", new Color(0.0f, 0.0f, 0.0f, 1.0f)));
             PlayerPrefsX.SetColor("Color", color);
             Debug.Log("hoi");
             renderer.material.color = color;
@@ -33,7 +31,6 @@ public class PlayerControllerBoth : MonoBehaviour
         {
             renderer.material.color = savedColor;
         }
-        // Debug.Log(renderer.material.color);
     }
 
     void OnCollisionEnter(Collision collision)
