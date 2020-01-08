@@ -9,22 +9,31 @@ public class PlayerControllerBoth : MonoBehaviour
     public Rigidbody rb;
     public GameObject player1;
     public GameObject player2;
-    public PlayerController1 playerController1;
-    public PlayerController2 playerController2;
+    public PlayerController playerController1;
+    public PlayerController playerController2;
     public Renderer renderer;
     public ColorPicker colorPicker;
+    Color savedColor;
     public float multiplier;
     
     void Start()
     {
-        playerController1 = GameObject.Find("Player 1").GetComponent<PlayerController1>();
-        playerController2 = GameObject.Find("Player 2").GetComponent<PlayerController2>();
+        playerController1 = GameObject.Find("Player 1").GetComponent<PlayerController>();
+        playerController2 = GameObject.Find("Player 2").GetComponent<PlayerController>();
         colorPicker.onValueChanged.AddListener(color =>
         {
-            renderer.material.color = color;
+            // Debug.Log(PlayerPrefs.HasKey("Color"));
+            // Debug.Log(PlayerPrefsX.GetColor("Color", new Color(0.0f, 0.0f, 0.0f, 1.0f)));
             PlayerPrefsX.SetColor("Color", color);
+            Debug.Log("hoi");
+            renderer.material.color = color;
         });
-        renderer.material.color = PlayerPrefsX.GetColor("Color", new Color(0.0f, 0.0f, 0.0f, 1.0f));
+        savedColor = PlayerPrefsX.GetColor("Color", new Color(0.0f, 0.0f, 0.0f, 1.0f));
+        if (PlayerPrefs.HasKey("Color"))
+        {
+            renderer.material.color = savedColor;
+        }
+        // Debug.Log(renderer.material.color);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -48,11 +57,11 @@ public class PlayerControllerBoth : MonoBehaviour
                 rb.mass = 1.0f;
                 if (gameObject.layer == 30)
                 {
-                    player1.GetComponent<PlayerController1>().force = 20.0f;
+                    playerController1.force = 20.0f;
                 }
                 if (gameObject.layer == 31)
                 {
-                    player2.GetComponent<PlayerController2>().force = 20.0f;
+                    playerController2.force = 20.0f;
                 }
             }
             if (collision.gameObject.layer == 12)
@@ -76,11 +85,11 @@ public class PlayerControllerBoth : MonoBehaviour
         floatParticle.startLifetime = 0;
         if (gameObject.layer == 30)
         {
-            player1.GetComponent<PlayerController1>().force = 1.0f;
+            playerController1.force = 1.0f;
         }
         if (gameObject.layer == 31)
         {
-            player2.GetComponent<PlayerController2>().force = 1.0f;
+            playerController2.force = 1.0f;
         }
     }
 }

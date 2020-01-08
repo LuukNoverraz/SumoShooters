@@ -418,6 +418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 265350176}
   force: 1
+  startZ: -2
   gameController: {fileID: 992521352}
 --- !u!114 &265350182
 MonoBehaviour:
@@ -433,8 +434,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerGlow: {fileID: 1926963146}
   floatParticle: {fileID: 685242780}
-  nuclearExplosion: {fileID: 881962772271874359, guid: a5b66c8e3ca238f46a70307f68633059,
-    type: 3}
   rb: {fileID: 265350176}
   player1: {fileID: 265350175}
   player2: {fileID: 712612788}
@@ -5786,9 +5785,8 @@ GameObject:
   - component: {fileID: 712612791}
   - component: {fileID: 712612790}
   - component: {fileID: 712612789}
-  - component: {fileID: 712612794}
+  - component: {fileID: 712612797}
   - component: {fileID: 712612795}
-  - component: {fileID: 712612796}
   m_Layer: 31
   m_Name: Player 2
   m_TagString: Players
@@ -5886,21 +5884,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &712612794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 712612788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57365e48df15d254f9bbb1e377d7bc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 712612789}
-  force: 1
-  gameController: {fileID: 992521352}
 --- !u!114 &712612795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5915,8 +5898,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerGlow: {fileID: 2038418521}
   floatParticle: {fileID: 1650783704}
-  nuclearExplosion: {fileID: 881962772271874359, guid: a5b66c8e3ca238f46a70307f68633059,
-    type: 3}
   rb: {fileID: 712612789}
   player1: {fileID: 265350175}
   player2: {fileID: 712612788}
@@ -5925,7 +5906,7 @@ MonoBehaviour:
   renderer: {fileID: 0}
   colorPicker: {fileID: 0}
   multiplier: 1.75
---- !u!114 &712612796
+--- !u!114 &712612797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5934,9 +5915,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 712612788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 929e7c244cfa1ef4f8e72e3a1882847b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 712612789}
+  force: 1
+  startZ: 2
+  gameController: {fileID: 992521352}
 --- !u!1 &740384592
 GameObject:
   m_ObjectHideFlags: 0

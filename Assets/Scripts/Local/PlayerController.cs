@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController1 : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
     public float force;
+    public float startZ;
     private Vector2 startSwipe;
     private Vector2 endSwipe;
     public GameController gameController;
@@ -19,9 +20,16 @@ public class PlayerController1 : MonoBehaviour
     {
         if (transform.position.y < -5.0f)
         {
-            transform.position = new Vector3(0.0f, 2.0f, -2.0f);
+            transform.position = new Vector3(0.0f, 2.0f, startZ);
             rb.velocity = Vector3.zero;
-            gameController.player1LifeLost = true;
+            if (gameObject.layer == 30)
+            {
+                gameController.player1LifeLost = true;
+            }
+            if (gameObject.layer == 31)
+            {
+                gameController.player2LifeLost = true;
+            }
             gameController.Lifes();
         }
     }

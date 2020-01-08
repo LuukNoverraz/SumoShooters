@@ -37,8 +37,6 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        player1Color = GameObject.Find("Player 1").GetComponent<MeshRenderer>().material.color;
-        player2Color = GameObject.Find("Player 2").GetComponent<MeshRenderer>().material.color;
         for (int i = 0; i < 5; i++)
         {
             player1Stocks[i].color = new Color32(player1Color.r, player1Color.g, player1Color.b, player1Color.a);
@@ -48,6 +46,13 @@ public class GameController : MonoBehaviour
         mainLightTransform.rotation = Quaternion.Euler(new Vector3(50.0f, Mathf.Floor(Random.Range(0.0f, 360.0f)), 0));
         stocksRect[0].sizeDelta = stocksRect[1].sizeDelta = new Vector2(Screen.width, Screen.height);
     }
+
+    void Awake()
+    {
+        player1Color = GameObject.Find("Player 1").GetComponent<MeshRenderer>().material.color;
+        player2Color = GameObject.Find("Player 2").GetComponent<MeshRenderer>().material.color;
+    }
+
     void Update()
     {
         if (player1DeathCount >= maxScore)
