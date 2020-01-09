@@ -23,7 +23,6 @@ public class PlayerControllerBoth : MonoBehaviour
         colorPicker.onValueChanged.AddListener(color =>
         {
             PlayerPrefsX.SetColor("Color", color);
-            Debug.Log("hoi");
             renderer.material.color = color;
         });
         savedColor = PlayerPrefsX.GetColor("Color", new Color(0.0f, 0.0f, 0.0f, 1.0f));
