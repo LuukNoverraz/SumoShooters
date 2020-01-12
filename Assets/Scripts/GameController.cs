@@ -134,11 +134,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void LocalPlayButton()
-    {
-        SceneManager.LoadScene("LocalMultiplayer");
-    }
-
     void PowerUpSpawn()
     {
         if (GameObject.FindGameObjectWithTag("PowerUp") == null) 
