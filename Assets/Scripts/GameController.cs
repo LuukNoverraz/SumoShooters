@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     public Sprite pauseSprite;
     public Sprite playSprite;
     public bool pausing = false;
+    public GameObject[] maps;
     public Transform mainLightTransform;
     public RectTransform borderTransform;
     public RectTransform[] stocksRect;
@@ -42,6 +43,7 @@ public class GameController : MonoBehaviour
             player1Stocks[i].color = new Color32(player1Color.r, player1Color.g, player1Color.b, player1Color.a);
             player2Stocks[i].color = new Color32(player2Color.r, player2Color.g, player2Color.b, player2Color.a);
         }
+        Instantiate(maps[(int) Random.Range(0, 4)]);
         borderTransform.sizeDelta = new Vector2(Screen.width, 10.0f);
         mainLightTransform.rotation = Quaternion.Euler(new Vector3(50.0f, Mathf.Floor(Random.Range(0.0f, 360.0f)), 0));
         stocksRect[0].sizeDelta = stocksRect[1].sizeDelta = new Vector2(Screen.width, Screen.height);
