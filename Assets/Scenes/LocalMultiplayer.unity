@@ -6130,9 +6130,8 @@ MonoBehaviour:
   - {fileID: 1326517282}
   - {fileID: 514943954}
   - {fileID: 933454871}
-  powerUpPrefab:
-  - {fileID: 0}
-  - {fileID: 0}
+  powerUpPrefab: {fileID: 3972471478928284666, guid: 6b81c0c4dedffe546a25ea77c7f85e15,
+    type: 3}
   redWin: {fileID: 1964592287}
   blueWin: {fileID: 1333575367}
   restartText:

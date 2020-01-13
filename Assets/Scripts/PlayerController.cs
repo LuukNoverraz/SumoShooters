@@ -11,10 +11,12 @@ public class PlayerController : MonoBehaviour
     private Vector2 startSwipe;
     private Vector2 endSwipe;
     public GameController gameController;
+    float shootStyle;
 
     void Start()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        shootStyle = PlayerPrefs.GetFloat("ShootStyle", 0.0f);
     }
     void Update()
     {
@@ -57,6 +59,6 @@ public class PlayerController : MonoBehaviour
         Vector3 swipe = endSwipe - startSwipe;
         swipe.z = swipe.y;
         swipe.y = 0.0f;
-        rb.AddForce(swipe * force, ForceMode.Impulse);
+        rb.AddForce(swipe * (force * shootStyle), ForceMode.Impulse);
     }
 }

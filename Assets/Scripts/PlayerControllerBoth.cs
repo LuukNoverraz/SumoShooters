@@ -28,11 +28,7 @@ public class PlayerControllerBoth : MonoBehaviour
         savedColor = PlayerPrefsX.GetColor("Color", new Color(0.0f, 0.0f, 0.0f, 1.0f));
         if (PlayerPrefs.HasKey("Color"))
         {
-            Debug.Log("les go");
-            Debug.Log(savedColor);
             renderer.material.color = savedColor;
-            Debug.Log("tijd voor material");
-            Debug.Log(renderer.material.color);
         }
     }
 

@@ -20,12 +20,6 @@ public class TouchInput : MonoBehaviour
     }
     void Update ()
     {
-        if (touchList.Count > 2 || Input.touchCount > 1)
-        {
-            // Debug.Log(touchList);
-            // Debug.Log("HET ZOU MOETEN WERKEN");
-        }
-
         #if UNITY_EDITOR
             if ((Input.GetMouseButton(0) || Input.GetMouseButtonDown(0)) && !gameController.pausing)
             {

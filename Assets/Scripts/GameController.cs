@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
     public RectTransform[] stocksRect;
     public Image[] player1Stocks;
     public Image[] player2Stocks;
-    public GameObject[] powerUpPrefab;
+    public GameObject powerUpPrefab;
     public Text redWin;
     public Text blueWin;
     public Text[] restartText;
@@ -57,6 +57,10 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ChangePlayState();
+        }
         if (player2DeathCount >= maxScore)
         {
             redWin.text = blueWin.text = "RED WINS";
@@ -88,8 +92,18 @@ public class GameController : MonoBehaviour
             Invoke("PowerUpSpawn", Random.Range(6, 12));
             spawning = true;
         }
-
     }
+    
+    public void ShootStylePush()
+    {
+        PlayerPrefs.SetFloat("ShootStyle", 1.0f);
+    }
+
+    public void ShootStyleDrag()
+    {
+        PlayerPrefs.SetFloat("ShootStyle", -1.0f);
+    }
+
     public void ChangePlayState()
     {
         if (currentPlayState == PlayState.PLAY)
@@ -129,7 +143,6 @@ public class GameController : MonoBehaviour
     {
         if (player2LifeLost = true && player2DeathCount < 5)
         {
-            Debug.Log(player2LifeLost);
             Destroy(player2Stocks[player2DeathCount]);
             player2LifeLost = false;
             player2DeathCount++;
@@ -140,7 +153,7 @@ public class GameController : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("PowerUp") == null) 
         {
-            Instantiate(powerUpPrefab[Random.Range(0, 2)], new Vector3(Random.Range(-3.0f, 3.0f), 0.75f, Random.Range(-3.0f, 3.0f)), transform.rotation);
+            Instantiate(powerUpPrefab, new Vector3(Random.Range(-3.0f, 3.0f), 0.75f, Random.Range(-3.0f, 3.0f)), transform.rotation);
             spawning = false;
         }
     }
