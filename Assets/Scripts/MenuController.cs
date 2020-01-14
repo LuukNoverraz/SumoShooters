@@ -12,7 +12,7 @@ public class MenuController : MonoBehaviour
     public RectTransform Customization;
     public RectTransform MadeByText;
     public RectTransform Background;
-    Vector3 offScreen = new Vector3(0, -Screen.height, 0);
+    Vector3 offScreen = new Vector3(0, -9999, 0);
     
     void Start()
     {

@@ -19,7 +19,6 @@ public class GameController : MonoBehaviour
     public GameObject[] maps;
     public Transform mainLightTransform;
     public RectTransform borderTransform;
-    public RectTransform[] stocksRect;
     public Image[] player1Stocks;
     public Image[] player2Stocks;
     public GameObject powerUpPrefab;
@@ -46,7 +45,6 @@ public class GameController : MonoBehaviour
         Instantiate(maps[(int) Random.Range(0, 4)]);
         borderTransform.sizeDelta = new Vector2(Screen.width, 10.0f);
         mainLightTransform.rotation = Quaternion.Euler(new Vector3(50.0f, Mathf.Floor(Random.Range(0.0f, 360.0f)), 0));
-        stocksRect[0].sizeDelta = stocksRect[1].sizeDelta = new Vector2(Screen.width, Screen.height);
     }
 
     void Awake()
