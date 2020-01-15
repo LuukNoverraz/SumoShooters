@@ -8,7 +8,6 @@ public class MenuController : MonoBehaviour
 
     public RectTransform MainMenu;
     public RectTransform SettingsMenu;
-    public RectTransform LevelSelection;
     public RectTransform Customization;
     public RectTransform MadeByText;
     public RectTransform Background;
@@ -17,7 +16,7 @@ public class MenuController : MonoBehaviour
     void Start()
     {
         Customization.sizeDelta = Background.sizeDelta = new Vector2(Screen.width, Screen.height);
-        SettingsMenu.localPosition = LevelSelection.localPosition = Customization.localPosition = offScreen;
+        SettingsMenu.localPosition = Customization.localPosition = offScreen;
         MadeByText.localPosition = new Vector3(0, -Screen.height + (Screen.height / 2) + 30, 0);
     }
     

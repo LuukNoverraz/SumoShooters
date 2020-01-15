@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BarnieScript : MonoBehaviour
+public class Rotate : MonoBehaviour
 {
     [SerializeField] private Vector3 rotation;
 
