@@ -34,6 +34,7 @@ public class GameController : MonoBehaviour
     bool spawning = false;
     Color32 player1Color;
     Color32 player2Color;
+    public ParticleSystem powerUpDisappear;
 
     void Start()
     {

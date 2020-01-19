@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public ColorPicker colorPicker;
     Color savedColor;
     public float multiplier;
+    float waitTime;
 
     void Start()
     {
@@ -66,8 +67,8 @@ public class PlayerController : MonoBehaviour
         {
             Rigidbody playerCol = collision.gameObject.GetComponent<Rigidbody>();
             playerCol.velocity = playerCol.velocity * multiplier;
-            bruh = Instantiate(audioController.audioSources[0]);
-            bruh.GetComponent<AudioSource>().Play(0);
+            // bruh = Instantiate(audioController.audioSources[0]);
+            // bruh.GetComponent<AudioSource>().Play(0);
             // StartCoroutine(SoundTimer());
             // Destroy(bruh);
         }
@@ -77,32 +78,37 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "PowerUp")
         {
-            Destroy(collision.gameObject);
-            if (collision.gameObject.layer == 11)
-            {    
-                transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                rb.mass = 1.0f;
-                if (gameObject.layer == 30)
-                {
-                    playerController1.force = 20.0f;
-                }
-                if (gameObject.layer == 31)
-                {
-                    playerController2.force = 20.0f;
-                }
-            }
-            if (collision.gameObject.layer == 12)
-            {
-                transform.position = new Vector3(transform.position.x, 2.0f, transform.position.z);
-                rb.constraints = RigidbodyConstraints.FreezePositionY;
-            }
-            StartCoroutine(PowerUpTimer());
+            Instantiate(gameController.powerUpDisappear, new Vector3(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y, collision.gameObject.transform.position.z), Quaternion.identity);
+            waitTime = 0.5f;
+            StartCoroutine(Timer());
+            // if (collision.gameObject.layer == 11)
+            // {    
+            //     transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            //     rb.mass = 1.0f;
+            //     if (gameObject.layer == 30)
+            //     {
+            //         playerController1.force = 20.0f;
+            //     }
+            //     if (gameObject.layer == 31)
+            //     {
+            //         playerController2.force = 20.0f;
+            //     }
+            // }
+            // if (collision.gameObject.layer == 12)
+            // {
+            //     transform.position = new Vector3(transform.position.x, 2.0f, transform.position.z);
+            //     rb.constraints = RigidbodyConstraints.FreezePositionY;
+            // }
+            // StartCoroutine(PowerUpTimer());
         }
     }
 
-    IEnumerator SoundTimer()
+    IEnumerator Timer()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(waitTime);
+        Destroy(GameObject.FindGameObjectWithTag("PowerUp"));
+        yield return new WaitForSeconds(waitTime);
+        Destroy(GameObject.FindWithTag("PowerUpParticle"));
     }
     IEnumerator PowerUpTimer() 
     {

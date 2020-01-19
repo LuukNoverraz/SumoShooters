@@ -13,7 +13,7 @@ public class BackgroundScroller : MonoBehaviour
 
     void Start()
     {
-        randomBackground = (int) Random.Range(0, 5);
+        randomBackground = (int) Random.Range(0, 0);
         backgroundMaterial = backgrounds[randomBackground];
         imageComponent.material = backgroundMaterial;
     }
