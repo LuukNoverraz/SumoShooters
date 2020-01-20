@@ -35,6 +35,10 @@ public class GameController : MonoBehaviour
     Color32 player1Color;
     Color32 player2Color;
     public ParticleSystem powerUpDisappear;
+    public Vector3[] powerUpSpawnLocations;
+    public MeshFilter Sphere;
+    public MeshFilter Cube;
+    
 
     void Start()
     {
@@ -88,6 +92,7 @@ public class GameController : MonoBehaviour
 
         if (!spawning)
         {
+            Debug.Log("invoke spawn");
             Invoke("PowerUpSpawn", Random.Range(6, 12));
             spawning = true;
         }
@@ -150,9 +155,10 @@ public class GameController : MonoBehaviour
 
     void PowerUpSpawn()
     {
+        Debug.Log("spawn time");
         if (GameObject.FindGameObjectWithTag("PowerUp") == null) 
         {
-            Instantiate(powerUpPrefab, new Vector3(Random.Range(-3.0f, 3.0f), 0.75f, Random.Range(-3.0f, 3.0f)), transform.rotation);
+            Instantiate(powerUpPrefab, powerUpSpawnLocations[(int) Random.Range(0, 3)], transform.rotation);
             spawning = false;
         }
     }

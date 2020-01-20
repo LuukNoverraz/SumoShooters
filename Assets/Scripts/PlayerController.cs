@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
     Color savedColor;
     public float multiplier;
     float waitTime;
+    public int randomPowerUp;
+    public GameObject slownessParticle;
+    public MeshFilter meshFilter;
+    public Collider boxCollider;
 
     void Start()
     {
@@ -33,6 +37,7 @@ public class PlayerController : MonoBehaviour
         audioController = GameObject.Find("Audio Controller").GetComponent<AudioController>();
         colorPicker.onValueChanged.AddListener(color =>
         {
+            Debug.Log("bruh");
             PlayerPrefsX.SetColor("Color", color);
             renderer.material.color = color;
         });
@@ -80,52 +85,70 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(gameController.powerUpDisappear, new Vector3(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y, collision.gameObject.transform.position.z), Quaternion.identity);
             waitTime = 0.5f;
-            StartCoroutine(Timer());
-            // if (collision.gameObject.layer == 11)
-            // {    
-            //     transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-            //     rb.mass = 1.0f;
-            //     if (gameObject.layer == 30)
-            //     {
-            //         playerController1.force = 20.0f;
-            //     }
-            //     if (gameObject.layer == 31)
-            //     {
-            //         playerController2.force = 20.0f;
-            //     }
-            // }
-            // if (collision.gameObject.layer == 12)
-            // {
-            //     transform.position = new Vector3(transform.position.x, 2.0f, transform.position.z);
-            //     rb.constraints = RigidbodyConstraints.FreezePositionY;
-            // }
-            // StartCoroutine(PowerUpTimer());
+            StartCoroutine(PowerUpParticleTimer());
+            randomPowerUp = (int) Random.Range(0, 3);
+            Debug.Log(randomPowerUp);
+            if (randomPowerUp == 0)
+            {  
+                transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                rb.mass = 1.0f;
+                if (gameObject.layer == 30)
+                {
+                    playerController1.force = 20.0f;
+                }
+                if (gameObject.layer == 31)
+                {
+                    playerController2.force = 20.0f;
+                }
+                waitTime = 3.0f;
+                StartCoroutine(PowerUpTimer());
+            }
+            if (randomPowerUp == 1)
+            {
+                if (gameObject.layer == 30)
+                {
+                    playerController2.force = 0.05f;
+                    playerController2.slownessParticle.SetActive(true);
+                }
+                if (gameObject.layer == 31)
+                {
+                    playerController1.force = 0.05f;
+                    playerController1.slownessParticle.SetActive(true);
+                }
+                waitTime = 4.0f;
+                StartCoroutine(PowerUpTimer());
+            }
+            if (randomPowerUp == 2)
+            {
+                meshFilter.sharedMesh = gameController.Cube.sharedMesh;
+                boxCollider.enabled = true;
+                waitTime = 10.0f;
+                StartCoroutine(PowerUpTimer());
+            }
         }
     }
 
-    IEnumerator Timer()
+    IEnumerator PowerUpTimer() 
+    {
+        yield return new WaitForSeconds(waitTime);
+        transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+        rb.mass = 0.05f;
+        rb.constraints = RigidbodyConstraints.None;
+        playerController1.force = playerController2.force = 1.0f;
+        playerController1.slownessParticle.SetActive(false);
+        playerController2.slownessParticle.SetActive(false);
+        meshFilter.sharedMesh = gameController.Sphere.sharedMesh;
+        boxCollider.enabled = false;
+    }
+    
+    IEnumerator PowerUpParticleTimer()
     {
         yield return new WaitForSeconds(waitTime);
         Destroy(GameObject.FindGameObjectWithTag("PowerUp"));
         yield return new WaitForSeconds(waitTime);
-        Destroy(GameObject.FindWithTag("PowerUpParticle"));
+        Destroy(GameObject.FindGameObjectWithTag("PowerUpParticle"));
     }
-    IEnumerator PowerUpTimer() 
-    {
-        yield return new WaitForSeconds(3);
-        transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
-        rb.mass = 0.05f;
-        rb.constraints = RigidbodyConstraints.None;
-        if (gameObject.layer == 30)
-        {
-            playerController1.force = 1.0f;
-        }
-        if (gameObject.layer == 31)
-        {
-            playerController2.force = 1.0f;
-        }
-    }
-
+    
     public void BeginShoot()
     {
         if (!gameController.pausing)
