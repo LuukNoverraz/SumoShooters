@@ -10,6 +10,8 @@ public class MenuController : MonoBehaviour
     public RectTransform SettingsMenu;
     public RectTransform Customization;
     public GameObject Players;
+    public RectTransform Colors;
+    public RectTransform ColorLocks;
     public RectTransform MadeByText;
     public RectTransform Background;
     Vector3 offScreen = new Vector3(0, 9999, 0);
@@ -19,7 +21,7 @@ public class MenuController : MonoBehaviour
         Customization.sizeDelta = Background.sizeDelta = new Vector2(Screen.width, Screen.height);
         Players.transform.position = offScreen;
         SettingsMenu.localPosition = Customization.localPosition = offScreen;
-        MadeByText.localPosition = new Vector3(0, -Screen.height + (Screen.height / 2) + 30, 0);
+        MadeByText.localPosition = new Vector3(0, -Screen.height + (Screen.height / 2) + 40, 0);
     }
     
     public void LocalPlayButton()
@@ -32,6 +34,8 @@ public class MenuController : MonoBehaviour
         MainMenu.localPosition = offScreen;
         Customization.localPosition = Vector3.zero;
         Players.transform.position = Vector3.zero;
+        Colors.localPosition = ColorLocks.localPosition = new Vector3(0, (-Screen.height / 2) + (Screen.height / 10), 0);
+        Colors.sizeDelta = ColorLocks.sizeDelta = new Vector2(Screen.width, 232.5f);
     }
 
     public void CustomizationBack()

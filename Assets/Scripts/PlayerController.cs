@@ -31,7 +31,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-        shootStyle = PlayerPrefs.GetFloat("ShootStyle", 0.0f);
+        if (PlayerPrefs.HasKey("ShootStyle"))
+        {
+            shootStyle = PlayerPrefs.GetFloat("ShootStyle", 0.0f);
+        }
+        if (PlayerPrefs.HasKey("ShootStyle") == false)
+        {
+            shootStyle = 1.0f;
+        }
         playerController1 = GameObject.Find("Player 1").GetComponent<PlayerController>();
         playerController2 = GameObject.Find("Player 2").GetComponent<PlayerController>();
         audioController = GameObject.Find("Audio Controller").GetComponent<AudioController>();

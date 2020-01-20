@@ -38,10 +38,19 @@ public class GameController : MonoBehaviour
     public Vector3[] powerUpSpawnLocations;
     public MeshFilter Sphere;
     public MeshFilter Cube;
+    public int currentSumocoins;
     
 
     void Start()
     {
+        if (PlayerPrefs.HasKey("Sumocoins") == false)
+        {
+            PlayerPrefs.SetInt("Sumocoins", 0);
+        }
+        if (PlayerPrefs.HasKey("Sumocoins"))
+        {
+            currentSumocoins = PlayerPrefs.GetInt("Sumocoins", 0);
+        }
         for (int i = 0; i < 5; i++)
         {
             player1Stocks[i].color = new Color32(player1Color.r, player1Color.g, player1Color.b, player1Color.a);
@@ -69,6 +78,8 @@ public class GameController : MonoBehaviour
             redWin.text = blueWin.text = "RED WINS";
             redWin.color = blueWin.color = new Color(colorList[0], colorList[1], colorList[2], 1.0f);
             restartText[0].color = restartText[1].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            PlayerPrefs.SetInt("Sumocoins", (currentSumocoins + 1));
+            Debug.Log(PlayerPrefs.GetInt("Sumocoins", 0));
             Time.timeScale = 0;
             if (Input.GetMouseButtonDown(0))
             {
