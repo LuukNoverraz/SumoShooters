@@ -47,11 +47,6 @@ public class MenuController : MonoBehaviour
         customizationBackButton.localPosition = new Vector2(((Screen.width / 2) - 120), 0);
     }
 
-    public void BuyColor()
-    {
-        
-    }
-
     public void CustomizationBack()
     {
         mainMenu.localPosition = Vector3.zero;

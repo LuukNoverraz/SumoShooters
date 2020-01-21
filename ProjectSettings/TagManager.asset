@@ -8,6 +8,8 @@ TagManager:
   - PowerUp
   - Border
   - PowerUpParticle
+  - Buyable
+  - Bought
   layers:
   - Default
   - TransparentFX

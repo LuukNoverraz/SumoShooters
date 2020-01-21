@@ -42,17 +42,6 @@ public class PlayerController : MonoBehaviour
         playerController1 = GameObject.Find("Player 1").GetComponent<PlayerController>();
         playerController2 = GameObject.Find("Player 2").GetComponent<PlayerController>();
         audioController = GameObject.Find("Audio Controller").GetComponent<AudioController>();
-        colorPicker.onValueChanged.AddListener(color =>
-        {
-            Debug.Log("bruh");
-            PlayerPrefsX.SetColor("Color", color);
-            renderer.material.color = color;
-        });
-        savedColor = PlayerPrefsX.GetColor("Color", new Color(0.0f, 0.0f, 0.0f, 1.0f));
-        if (PlayerPrefs.HasKey("Color"))
-        {
-            renderer.material.color = savedColor;
-        }
     }
     void Update()
     {
@@ -94,9 +83,9 @@ public class PlayerController : MonoBehaviour
             waitTime = 0.5f;
             StartCoroutine(PowerUpParticleTimer());
             randomPowerUp = (int) Random.Range(0, 3);
-            Debug.Log(randomPowerUp);
             if (randomPowerUp == 0)
             {  
+                // Players size increases
                 transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 rb.mass = 1.0f;
                 if (gameObject.layer == 30)
@@ -112,6 +101,7 @@ public class PlayerController : MonoBehaviour
             }
             if (randomPowerUp == 1)
             {
+                // Other player gets immobilized
                 if (gameObject.layer == 30)
                 {
                     playerController2.force = 0.05f;
@@ -127,6 +117,7 @@ public class PlayerController : MonoBehaviour
             }
             if (randomPowerUp == 2)
             {
+                // Player gets turned into cube
                 meshFilter.sharedMesh = gameController.Cube.sharedMesh;
                 boxCollider.enabled = true;
                 waitTime = 10.0f;
