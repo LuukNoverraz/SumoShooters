@@ -79,7 +79,6 @@ public class GameController : MonoBehaviour
             redWin.color = blueWin.color = new Color(colorList[0], colorList[1], colorList[2], 1.0f);
             restartText[0].color = restartText[1].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
             PlayerPrefs.SetInt("Sumocoins", (currentSumocoins + 1));
-            Debug.Log(PlayerPrefs.GetInt("Sumocoins", 0));
             Time.timeScale = 0;
             if (Input.GetMouseButtonDown(0))
             {

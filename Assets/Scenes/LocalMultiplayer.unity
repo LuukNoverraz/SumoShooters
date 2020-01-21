@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 265350176}
   - component: {fileID: 265350181}
   - component: {fileID: 265350182}
+  - component: {fileID: 265350183}
   m_Layer: 30
   m_Name: Player 1
   m_TagString: Players
@@ -543,6 +544,119 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &265350183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265350175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5919d47ae5610b943a6d85da1d90fcfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  telecamera: {fileID: 534669904}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1073741824
+  lunghezzaRaycast: 100
+  tocchiMassimiConsentiti: 2
+  onEnterContaComePremuto: 0
+  onPressNonChiamaOnEnter: 0
+  canPassThroughUI: 0
+  runOnFixedUpdate: 0
+  permettiSoloTocchiVirtuali: 0
+  sogliaDistanzaDrag: 0.01
+  sogliaTempoTap: 0.26
+  sogliaTempoLongPress: 0.5
+  sogliaTempoSwipe: 0.3
+  sogliaDistanzaSwipe: 0.03
+  sogliaVelocitaSwipe: 0.2
+  sogliaTempoDoubleTap: 0.5
+  sogliaDistanzaDoubleTap: 0.03
+  permettiSoloUnGestureAllaVolta: 0
+  sogliaDistanzaPinch: 0.03
+  sogliaDistanzaPan: 0.02
+  sogliaDistanzaTocchiPan: 1
+  sogliaRotazione: 4
+  debug_log: 0
+  debug_grandezzaGizmo: 0.1
+  listaTocchi: []
+  listaGestures: []
+  listaIstanzeTap: []
+  eventiTocco:
+    onPress:
+      m_PersistentCalls:
+        m_Calls: []
+    onEnter:
+      m_PersistentCalls:
+        m_Calls: []
+    onKeep:
+      m_PersistentCalls:
+        m_Calls: []
+    onExit:
+      m_PersistentCalls:
+        m_Calls: []
+    onRelease:
+      m_PersistentCalls:
+        m_Calls: []
+    onBeginDrag:
+      m_PersistentCalls:
+        m_Calls: []
+    onDrag:
+      m_PersistentCalls:
+        m_Calls: []
+    onTap:
+      m_PersistentCalls:
+        m_Calls: []
+    onLongPress:
+      m_PersistentCalls:
+        m_Calls: []
+    onSwipe:
+      m_PersistentCalls:
+        m_Calls: []
+    onDoubleTap:
+      m_PersistentCalls:
+        m_Calls: []
+    onCancel:
+      m_PersistentCalls:
+        m_Calls: []
+  eventiGestures:
+    onGestureBegin:
+      m_PersistentCalls:
+        m_Calls: []
+    onGestureKeep:
+      m_PersistentCalls:
+        m_Calls: []
+    onPinchBegin:
+      m_PersistentCalls:
+        m_Calls: []
+    onPinchChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    onPanBegin:
+      m_PersistentCalls:
+        m_Calls: []
+    onPanChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    onRotateBegin:
+      m_PersistentCalls:
+        m_Calls: []
+    onRotateChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    onGestureEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    onGestureCancel:
+      m_PersistentCalls:
+        m_Calls: []
+  deltaTime: 0
+  myTrans: {fileID: 0}
+  is2dCollider: 0
+  eventSystem: {fileID: 0}
 --- !u!1 &350073580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,6 +1292,7 @@ GameObject:
   - component: {fileID: 712612789}
   - component: {fileID: 712612797}
   - component: {fileID: 712612794}
+  - component: {fileID: 712612795}
   m_Layer: 31
   m_Name: Player 2
   m_TagString: Players
@@ -1287,6 +1402,119 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &712612795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712612788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5919d47ae5610b943a6d85da1d90fcfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  telecamera: {fileID: 534669904}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2147483648
+  lunghezzaRaycast: 100
+  tocchiMassimiConsentiti: 2
+  onEnterContaComePremuto: 0
+  onPressNonChiamaOnEnter: 0
+  canPassThroughUI: 0
+  runOnFixedUpdate: 0
+  permettiSoloTocchiVirtuali: 0
+  sogliaDistanzaDrag: 0.01
+  sogliaTempoTap: 0.26
+  sogliaTempoLongPress: 0.5
+  sogliaTempoSwipe: 0.3
+  sogliaDistanzaSwipe: 0.03
+  sogliaVelocitaSwipe: 0.2
+  sogliaTempoDoubleTap: 0.5
+  sogliaDistanzaDoubleTap: 0.03
+  permettiSoloUnGestureAllaVolta: 0
+  sogliaDistanzaPinch: 0.03
+  sogliaDistanzaPan: 0.02
+  sogliaDistanzaTocchiPan: 1
+  sogliaRotazione: 4
+  debug_log: 0
+  debug_grandezzaGizmo: 0.1
+  listaTocchi: []
+  listaGestures: []
+  listaIstanzeTap: []
+  eventiTocco:
+    onPress:
+      m_PersistentCalls:
+        m_Calls: []
+    onEnter:
+      m_PersistentCalls:
+        m_Calls: []
+    onKeep:
+      m_PersistentCalls:
+        m_Calls: []
+    onExit:
+      m_PersistentCalls:
+        m_Calls: []
+    onRelease:
+      m_PersistentCalls:
+        m_Calls: []
+    onBeginDrag:
+      m_PersistentCalls:
+        m_Calls: []
+    onDrag:
+      m_PersistentCalls:
+        m_Calls: []
+    onTap:
+      m_PersistentCalls:
+        m_Calls: []
+    onLongPress:
+      m_PersistentCalls:
+        m_Calls: []
+    onSwipe:
+      m_PersistentCalls:
+        m_Calls: []
+    onDoubleTap:
+      m_PersistentCalls:
+        m_Calls: []
+    onCancel:
+      m_PersistentCalls:
+        m_Calls: []
+  eventiGestures:
+    onGestureBegin:
+      m_PersistentCalls:
+        m_Calls: []
+    onGestureKeep:
+      m_PersistentCalls:
+        m_Calls: []
+    onPinchBegin:
+      m_PersistentCalls:
+        m_Calls: []
+    onPinchChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    onPanBegin:
+      m_PersistentCalls:
+        m_Calls: []
+    onPanChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    onRotateBegin:
+      m_PersistentCalls:
+        m_Calls: []
+    onRotateChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    onGestureEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    onGestureCancel:
+      m_PersistentCalls:
+        m_Calls: []
+  deltaTime: 0
+  myTrans: {fileID: 0}
+  is2dCollider: 0
+  eventSystem: {fileID: 0}
 --- !u!114 &712612797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6247,6 +6475,7 @@ MonoBehaviour:
   - {x: 0, y: 0.5, z: -2}
   Sphere: {fileID: 9090893241970392042, guid: 8450d74b9a06d6b439cce68e6ec49e36, type: 3}
   Cube: {fileID: 7307363337413571520, guid: 168b2a9890142d848b70e284b3b3fcbd, type: 3}
+  currentSumocoins: 0
 --- !u!1 &1039426447
 GameObject:
   m_ObjectHideFlags: 0
