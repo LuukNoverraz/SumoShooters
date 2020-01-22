@@ -27,9 +27,23 @@ public class PlayerController : MonoBehaviour
     public GameObject slownessParticle;
     public MeshFilter meshFilter;
     public Collider boxCollider;
+    Color newPlayer1Color;
+    Color newPlayer2Color;
 
     void Start()
     {
+        if (PlayerPrefs.HasKey("ChosenColorR") && gameObject.layer == 30)
+        {
+            Debug.Log("yup");
+            newPlayer1Color = new Color(PlayerPrefs.GetFloat("ChosenColorR", 0.0f), PlayerPrefs.GetFloat("ChosenColorG", 0.0f), PlayerPrefs.GetFloat("ChosenColorB", 0.0f));
+            renderer.material.color = newPlayer1Color;
+        }
+        if (PlayerPrefs.HasKey("ChosenColorR2") && gameObject.layer == 31)
+        {
+            Debug.Log("yup");
+            newPlayer2Color = new Color(PlayerPrefs.GetFloat("ChosenColorR2", 0.0f), PlayerPrefs.GetFloat("ChosenColorG2", 0.0f), PlayerPrefs.GetFloat("ChosenColorB2", 0.0f));
+            renderer.material.color = newPlayer2Color;
+        }
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         if (PlayerPrefs.HasKey("ShootStyle"))
         {
@@ -43,6 +57,18 @@ public class PlayerController : MonoBehaviour
         playerController2 = GameObject.Find("Player 2").GetComponent<PlayerController>();
         audioController = GameObject.Find("Audio Controller").GetComponent<AudioController>();
     }
+
+    void Awake()
+    {
+        gameController.player1Color = renderer.material.color;
+        gameController.player2Color = renderer.material.color;
+        for (int i = 0; i < 5; i++)
+        {
+            gameController.player1Stocks[i].color = new Color(newPlayer1Color.r * 255, newPlayer1Color.g * 255, newPlayer1Color.b * 255);
+            gameController.player2Stocks[i].color = new Color(newPlayer2Color.r * 255, newPlayer2Color.g * 255, newPlayer2Color.b * 255);
+        }
+    }
+
     void Update()
     {
         if (transform.position.y < -5.0f)

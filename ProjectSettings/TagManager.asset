@@ -10,6 +10,8 @@ TagManager:
   - PowerUpParticle
   - Buyable
   - Bought
+  - Buyable2
+  - Bought2
   layers:
   - Default
   - TransparentFX

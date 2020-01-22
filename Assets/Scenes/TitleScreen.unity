@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311536, g: 0.38073704, b: 0.35873237, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311512, g: 0.38073677, b: 0.35873252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -616,7 +616,7 @@ GameObject:
   - component: {fileID: 30516087}
   m_Layer: 5
   m_Name: PinkLocked
-  m_TagString: Buyable
+  m_TagString: Buyable2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -777,7 +777,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 30516085}
-          m_MethodName: OnPointerDown
+          m_MethodName: OnPointerDown2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1083,7 +1083,7 @@ GameObject:
   - component: {fileID: 62209090}
   m_Layer: 5
   m_Name: RedLocked
-  m_TagString: Bought
+  m_TagString: Bought2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1244,7 +1244,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 62209088}
-          m_MethodName: OnPointerDown
+          m_MethodName: OnPointerDown2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2789,7 +2789,7 @@ GameObject:
   - component: {fileID: 331989897}
   m_Layer: 5
   m_Name: WhiteLocked
-  m_TagString: Buyable
+  m_TagString: Buyable2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2950,7 +2950,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 331989895}
-          m_MethodName: OnPointerDown
+          m_MethodName: OnPointerDown2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2978,7 +2978,7 @@ GameObject:
   - component: {fileID: 351828258}
   m_Layer: 5
   m_Name: GreenLocked
-  m_TagString: Buyable
+  m_TagString: Buyable2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3139,7 +3139,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 351828256}
-          m_MethodName: OnPointerDown
+          m_MethodName: OnPointerDown2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3167,7 +3167,7 @@ GameObject:
   - component: {fileID: 374083651}
   m_Layer: 5
   m_Name: PurpleLocked
-  m_TagString: Buyable
+  m_TagString: Buyable2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3328,7 +3328,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 374083649}
-          m_MethodName: OnPointerDown
+          m_MethodName: OnPointerDown2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3481,7 +3481,7 @@ GameObject:
   - component: {fileID: 397772556}
   m_Layer: 5
   m_Name: BlackLocked
-  m_TagString: Buyable
+  m_TagString: Buyable2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3642,7 +3642,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 397772554}
-          m_MethodName: OnPointerDown
+          m_MethodName: OnPointerDown2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3978,7 +3978,7 @@ GameObject:
   - component: {fileID: 476028044}
   m_Layer: 5
   m_Name: OrangeLocked
-  m_TagString: Buyable
+  m_TagString: Buyable2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4139,7 +4139,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 476028042}
-          m_MethodName: OnPointerDown
+          m_MethodName: OnPointerDown2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5220,7 +5220,7 @@ GameObject:
   - component: {fileID: 741152168}
   m_Layer: 5
   m_Name: BlueLocked
-  m_TagString: Bought
+  m_TagString: Bought2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5381,7 +5381,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 741152166}
-          m_MethodName: OnPointerDown
+          m_MethodName: OnPointerDown2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5675,7 +5675,7 @@ GameObject:
   - component: {fileID: 794106952}
   m_Layer: 5
   m_Name: YellowLocked
-  m_TagString: Buyable
+  m_TagString: Buyable2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5836,7 +5836,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 794106950}
-          m_MethodName: OnPointerDown
+          m_MethodName: OnPointerDown2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -12513,7 +12513,7 @@ GameObject:
   - component: {fileID: 1956809520}
   m_Layer: 5
   m_Name: TurquoiseLocked
-  m_TagString: Buyable
+  m_TagString: Buyable2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12674,7 +12674,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1956809518}
-          m_MethodName: OnPointerDown
+          m_MethodName: OnPointerDown2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

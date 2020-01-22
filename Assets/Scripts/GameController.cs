@@ -32,8 +32,8 @@ public class GameController : MonoBehaviour
     [HideInInspector] public bool player2LifeLost = false;
     [HideInInspector] public int player2DeathCount = 0;
     bool spawning = false;
-    Color32 player1Color;
-    Color32 player2Color;
+    public Color player1Color;
+    public Color player2Color;
     public ParticleSystem powerUpDisappear;
     public Vector3[] powerUpSpawnLocations;
     public MeshFilter Sphere;
@@ -51,20 +51,9 @@ public class GameController : MonoBehaviour
         {
             currentSumocoins = PlayerPrefs.GetInt("Sumocoins", 0);
         }
-        for (int i = 0; i < 5; i++)
-        {
-            player1Stocks[i].color = new Color32(player1Color.r, player1Color.g, player1Color.b, player1Color.a);
-            player2Stocks[i].color = new Color32(player2Color.r, player2Color.g, player2Color.b, player2Color.a);
-        }
         Instantiate(maps[(int) Random.Range(0, 4)]);
         borderTransform.sizeDelta = new Vector2(Screen.width, 10.0f);
         mainLightTransform.rotation = Quaternion.Euler(new Vector3(50.0f, Mathf.Floor(Random.Range(0.0f, 360.0f)), 0));
-    }
-
-    void Awake()
-    {
-        player1Color = GameObject.Find("Player 1").GetComponent<MeshRenderer>().material.color;
-        player2Color = GameObject.Find("Player 2").GetComponent<MeshRenderer>().material.color;
     }
 
     void Update()

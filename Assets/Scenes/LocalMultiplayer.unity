@@ -524,7 +524,7 @@ MonoBehaviour:
   playerController2: {fileID: 712612797}
   audioController: {fileID: 1154631883}
   bruh: {fileID: 0}
-  renderer: {fileID: 0}
+  renderer: {fileID: 265350178}
   colorPicker: {fileID: 0}
   multiplier: 1.75
   randomPowerUp: 0
@@ -1537,7 +1537,7 @@ MonoBehaviour:
   playerController2: {fileID: 712612797}
   audioController: {fileID: 1154631883}
   bruh: {fileID: 0}
-  renderer: {fileID: 0}
+  renderer: {fileID: 712612791}
   colorPicker: {fileID: 0}
   multiplier: 1.75
   randomPowerUp: 0
