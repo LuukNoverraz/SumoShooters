@@ -518,8 +518,7 @@ MonoBehaviour:
   force: 1
   startZ: -2
   gameController: {fileID: 992521352}
-  player1: {fileID: 0}
-  player2: {fileID: 0}
+  otherPlayer: {fileID: 0}
   playerController1: {fileID: 265350181}
   playerController2: {fileID: 712612797}
   audioController: {fileID: 1154631883}
@@ -829,7 +828,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1531,8 +1530,7 @@ MonoBehaviour:
   force: 1
   startZ: 2
   gameController: {fileID: 992521352}
-  player1: {fileID: 0}
-  player2: {fileID: 0}
+  otherPlayer: {fileID: 0}
   playerController1: {fileID: 265350181}
   playerController2: {fileID: 712612797}
   audioController: {fileID: 1154631883}
@@ -6424,7 +6422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPlayState: 0
-  pausePlayImage: {fileID: 0}
+  pausePlayImage: {fileID: 594741874}
   pauseSprite: {fileID: 21300000, guid: fcd192c8f338db44f94e754e4ab252bd, type: 3}
   playSprite: {fileID: 21300000, guid: 97d5fa9b31fe1ab47a94a4bcdcaec965, type: 3}
   pausing: 0
@@ -6466,6 +6464,8 @@ MonoBehaviour:
   player1DeathCount: 0
   player2LifeLost: 0
   player2DeathCount: 0
+  player1Color: {r: 0, g: 0, b: 0, a: 0}
+  player2Color: {r: 0, g: 0, b: 0, a: 0}
   powerUpDisappear: {fileID: 3372688420898922966, guid: c524a8c03835ec64ab1f4d2c901c12b9,
     type: 3}
   powerUpSpawnLocations:

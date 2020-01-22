@@ -81,6 +81,7 @@ public class GameController : MonoBehaviour
             redWin.text = blueWin.text = "BLUE WINS";
             redWin.color = blueWin.color = new Color(colorList[3], colorList[4], colorList[5], 1.0f);
             restartText[0].color = restartText[1].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            PlayerPrefs.SetInt("Sumocoins", (currentSumocoins + 1));
             Time.timeScale = 0;
             if (Input.GetMouseButtonDown(0))
             {
@@ -91,7 +92,6 @@ public class GameController : MonoBehaviour
 
         if (!spawning)
         {
-            Debug.Log("invoke spawn");
             Invoke("PowerUpSpawn", Random.Range(6, 12));
             spawning = true;
         }
