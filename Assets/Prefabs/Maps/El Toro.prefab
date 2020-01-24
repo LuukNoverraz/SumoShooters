@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &2776839324087028855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2776839324086995675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 903ce5cf98626914794647998cf4b19b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotation: {x: 0, y: 15, z: 0}
 --- !u!1 &3720868282272650677
 GameObject:
   m_ObjectHideFlags: 0
@@ -26,7 +13,7 @@ GameObject:
   - component: {fileID: 3720868282270714741}
   - component: {fileID: 3720868282272650682}
   m_Layer: 0
-  m_Name: El Toro 1
+  m_Name: El Toro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,19 +121,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c0a3923d6b39bc842a19ce547e5c80e4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.043167867
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c0a3923d6b39bc842a19ce547e5c80e4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7057879
+      value: 0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c0a3923d6b39bc842a19ce547e5c80e4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7057879
+      value: 0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c0a3923d6b39bc842a19ce547e5c80e4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.043167867
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c0a3923d6b39bc842a19ce547e5c80e4, type: 3}
       propertyPath: m_RootOrder
@@ -154,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c0a3923d6b39bc842a19ce547e5c80e4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -83.00001
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c0a3923d6b39bc842a19ce547e5c80e4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -178,12 +165,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0a3923d6b39bc842a19ce547e5c80e4, type: 3}
---- !u!1 &2776839324086995675 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100002, guid: c0a3923d6b39bc842a19ce547e5c80e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 2776839324087028857}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2776839324087162619 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: c0a3923d6b39bc842a19ce547e5c80e4,

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject player1;
+    public GameObject player2;
     public Rigidbody rb;
     public float force;
     public float startZ;
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public ColorPicker colorPicker;
     Color savedColor;
     public float multiplier;
+    bool touchingPowerUp = false;
     float waitTime;
     public int randomPowerUp;
     public GameObject slownessParticle;
@@ -49,8 +52,8 @@ public class PlayerController : MonoBehaviour
         {
             shootStyle = 1.0f;
         }
-        playerController1 = GameObject.Find("Player 1").GetComponent<PlayerController>();
-        playerController2 = GameObject.Find("Player 2").GetComponent<PlayerController>();
+        playerController1 = player1.GetComponent<PlayerController>();
+        playerController2 = player2.GetComponent<PlayerController>();
         audioController = GameObject.Find("Audio Controller").GetComponent<AudioController>();
         gameController.player1Color = renderer.material.color;
         gameController.player2Color = renderer.material.color;
@@ -84,8 +87,16 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Players")
         {
-            Rigidbody playerCol = collision.gameObject.GetComponent<Rigidbody>();
-            playerCol.velocity = playerCol.velocity * multiplier;
+            if (gameObject.layer == 30)
+            {
+                Rigidbody playerCol = player2.GetComponent<Rigidbody>();
+                playerCol.velocity = playerCol.velocity * multiplier;
+            }
+            if (gameObject.layer == 31)
+            {
+                Rigidbody playerCol = player1.GetComponent<Rigidbody>();
+                playerCol.velocity = playerCol.velocity * multiplier;
+            }
             // bruh = Instantiate(audioController.audioSources[0]);
             // bruh.GetComponent<AudioSource>().Play(0);
             // StartCoroutine(SoundTimer());
@@ -95,8 +106,9 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "PowerUp")
+        if (collision.gameObject.tag == "PowerUp" && touchingPowerUp == false)
         {
+            touchingPowerUp = true;
             Instantiate(gameController.powerUpDisappear, new Vector3(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y, collision.gameObject.transform.position.z), Quaternion.identity);
             waitTime = 0.5f;
             StartCoroutine(PowerUpParticleTimer());
@@ -155,6 +167,7 @@ public class PlayerController : MonoBehaviour
         playerController2.slownessParticle.SetActive(false);
         meshFilter.sharedMesh = gameController.Sphere.sharedMesh;
         boxCollider.enabled = false;
+        touchingPowerUp = false;
     }
     
     IEnumerator PowerUpParticleTimer()

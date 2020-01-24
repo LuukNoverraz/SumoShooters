@@ -38,6 +38,8 @@ public class GameController : MonoBehaviour
     public Vector3[] powerUpSpawnLocations;
     public MeshFilter Sphere;
     public MeshFilter Cube;
+    public RectTransform player1Blooper;
+    public RectTransform player2Blooper;
     public int currentSumocoins;
     
 
@@ -54,6 +56,9 @@ public class GameController : MonoBehaviour
         Instantiate(maps[(int) Random.Range(0, 4)]);
         borderTransform.sizeDelta = new Vector2(Screen.width, 10.0f);
         mainLightTransform.rotation = Quaternion.Euler(new Vector3(50.0f, Mathf.Floor(Random.Range(0.0f, 360.0f)), 0));
+        player1Blooper.localPosition = new Vector2(0, (Screen.height / 2) - 315);
+        player2Blooper.localPosition = new Vector2(0, -((Screen.height / 2) - 315));
+        player1Blooper.sizeDelta = player2Blooper.sizeDelta = new Vector2(Screen.width, Screen.height / 2);
     }
 
     void Update()

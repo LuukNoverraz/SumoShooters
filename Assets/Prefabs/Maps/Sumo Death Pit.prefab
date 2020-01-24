@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5685904483809968308}
   m_Layer: 0
-  m_Name: Sumo Tower
+  m_Name: Sumo Death Pit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
