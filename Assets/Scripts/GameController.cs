@@ -69,8 +69,8 @@ public class GameController : MonoBehaviour
         }
         if (player2DeathCount >= maxScore)
         {
-            redWin.text = blueWin.text = "RED WINS";
-            redWin.color = blueWin.color = new Color(colorList[0], colorList[1], colorList[2], 1.0f);
+            redWin.text = blueWin.text = "PLAYER 1 WINS";
+            redWin.color = blueWin.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
             restartText[0].color = restartText[1].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
             PlayerPrefs.SetInt("Sumocoins", (currentSumocoins + 1));
             Time.timeScale = 0;
@@ -83,8 +83,9 @@ public class GameController : MonoBehaviour
 
         if (player1DeathCount >= maxScore)
         {
-            redWin.text = blueWin.text = "BLUE WINS";
-            redWin.color = blueWin.color = new Color(colorList[3], colorList[4], colorList[5], 1.0f);
+            redWin.text = blueWin.text = "PLAYER 2 WINS";
+            // redWin.color = blueWin.color = new Color(colorList[3], colorList[4], colorList[5], 1.0f);
+            redWin.color = blueWin.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
             restartText[0].color = restartText[1].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
             PlayerPrefs.SetInt("Sumocoins", (currentSumocoins + 1));
             Time.timeScale = 0;
@@ -135,6 +136,11 @@ public class GameController : MonoBehaviour
                 Time.timeScale = 1;
                 break;
         }
+    }
+
+    public void ExitGame()
+    {
+        SceneManager.LoadScene("TitleScreen");
     }
 
     public void LifeLostPlayer1()
