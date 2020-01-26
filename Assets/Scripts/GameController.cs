@@ -1,13 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public enum PlayState
 {
     PLAY,
-    PAUSE
+    PAUSE,
+    EXIT
 }
 public class GameController : MonoBehaviour
 {
@@ -22,9 +21,12 @@ public class GameController : MonoBehaviour
     public Image[] player1Stocks;
     public Image[] player2Stocks;
     public GameObject powerUpPrefab;
+    private Color white = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    private Color black = new Color(0.0f, 0.0f, 0.0f, 1.0f);
     public Text redWin;
     public Text blueWin;
     public Text[] restartText;
+    public Image[] winBackground;
     public int maxScore;
     public float[] colorList;
     [HideInInspector] public bool player1LifeLost = false;
@@ -45,7 +47,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        if (PlayerPrefs.HasKey("Sumocoins") == false)
+        if (!PlayerPrefs.HasKey("Sumocoins"))
         {
             PlayerPrefs.SetInt("Sumocoins", 0);
         }
@@ -70,11 +72,11 @@ public class GameController : MonoBehaviour
         if (player2DeathCount >= maxScore)
         {
             redWin.text = blueWin.text = "PLAYER 1 WINS";
-            redWin.color = blueWin.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-            restartText[0].color = restartText[1].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            redWin.color = blueWin.color = restartText[0].color = restartText[1].color = white;
+            winBackground[0].color = winBackground[1].color = black;
             PlayerPrefs.SetInt("Sumocoins", (currentSumocoins + 1));
             Time.timeScale = 0;
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.R))
             {
                 Time.timeScale = 1;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -85,11 +87,11 @@ public class GameController : MonoBehaviour
         {
             redWin.text = blueWin.text = "PLAYER 2 WINS";
             // redWin.color = blueWin.color = new Color(colorList[3], colorList[4], colorList[5], 1.0f);
-            redWin.color = blueWin.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-            restartText[0].color = restartText[1].color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            redWin.color = blueWin.color = restartText[0].color = restartText[1].color = white;
+            winBackground[0].color = winBackground[1].color = black;
             PlayerPrefs.SetInt("Sumocoins", (currentSumocoins + 1));
             Time.timeScale = 0;
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.R))
             {
                 Time.timeScale = 1;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -115,16 +117,24 @@ public class GameController : MonoBehaviour
 
     public void ChangePlayState()
     {
-        if (currentPlayState == PlayState.PLAY)
+
+        if (gameObject.tag == "Exit")
+        {
+            currentPlayState = PlayState.EXIT;
+        }
+        else if (currentPlayState == PlayState.PLAY)
         {
             currentPlayState = PlayState.PAUSE;
         }
-        else 
+        else
         {
             currentPlayState = PlayState.PLAY;
         }
         switch(currentPlayState)
         {
+            case PlayState.EXIT:
+                SceneManager.LoadScene("TitleScreen");
+                break;
             case PlayState.PAUSE:
                 pausePlayImage.sprite = playSprite;
                 pausing = true;
@@ -136,11 +146,6 @@ public class GameController : MonoBehaviour
                 Time.timeScale = 1;
                 break;
         }
-    }
-
-    public void ExitGame()
-    {
-        SceneManager.LoadScene("TitleScreen");
     }
 
     public void LifeLostPlayer1()
@@ -165,7 +170,6 @@ public class GameController : MonoBehaviour
 
     void PowerUpSpawn()
     {
-        Debug.Log("spawn time");
         if (GameObject.FindGameObjectWithTag("PowerUp") == null) 
         {
             Instantiate(powerUpPrefab, powerUpSpawnLocations[(int) Random.Range(0, 3)], transform.rotation);

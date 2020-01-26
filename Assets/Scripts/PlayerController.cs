@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,18 +11,15 @@ public class PlayerController : MonoBehaviour
     private Vector2 startSwipe;
     private Vector2 endSwipe;
     public GameController gameController;
-    float shootStyle;
+    private float shootStyle;
     public PlayerController playerController1;
     public PlayerController playerController2;
     public AudioController audioController;
-    public GameObject bruh;
-    public Renderer renderer;
-    public ColorPicker colorPicker;
-    Color savedColor;
+    public Renderer playerRenderer;
     public float multiplier;
-    bool touchingPowerUp = false;
-    float waitTime;
-    public int randomPowerUp;
+    private bool touchingPowerUp = false;
+    private float waitTime;
+    private int randomPowerUp;
     public GameObject slownessParticle;
     public MeshFilter meshFilter;
     public Collider boxCollider;
@@ -36,31 +31,40 @@ public class PlayerController : MonoBehaviour
         if (PlayerPrefs.HasKey("ChosenColorR") && gameObject.layer == 30)
         {
             newPlayer1Color = new Color(PlayerPrefs.GetFloat("ChosenColorR", 0.0f), PlayerPrefs.GetFloat("ChosenColorG", 0.0f), PlayerPrefs.GetFloat("ChosenColorB", 0.0f));
-            renderer.material.color = newPlayer1Color;
+            playerRenderer.material.color = newPlayer1Color;
         }
         if (PlayerPrefs.HasKey("ChosenColorR2") && gameObject.layer == 31)
         {
             newPlayer2Color = new Color(PlayerPrefs.GetFloat("ChosenColorR2", 0.0f), PlayerPrefs.GetFloat("ChosenColorG2", 0.0f), PlayerPrefs.GetFloat("ChosenColorB2", 0.0f));
-            renderer.material.color = newPlayer2Color;
+            playerRenderer.material.color = newPlayer2Color;
         }
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         if (PlayerPrefs.HasKey("ShootStyle"))
         {
             shootStyle = PlayerPrefs.GetFloat("ShootStyle", 0.0f);
         }
-        if (PlayerPrefs.HasKey("ShootStyle") == false)
+        if (!PlayerPrefs.HasKey("ShootStyle"))
         {
             shootStyle = 1.0f;
         }
         playerController1 = player1.GetComponent<PlayerController>();
         playerController2 = player2.GetComponent<PlayerController>();
         audioController = GameObject.Find("Audio Controller").GetComponent<AudioController>();
-        gameController.player1Color = renderer.material.color;
-        gameController.player2Color = renderer.material.color;
-        for (int i = 0; i < 5; i++)
+        if (gameObject.layer == 30)
         {
-            gameController.player1Stocks[i].color = new Color(newPlayer1Color.r, newPlayer1Color.g, newPlayer1Color.b);
-            gameController.player2Stocks[i].color = new Color(newPlayer2Color.r, newPlayer2Color.g, newPlayer2Color.b);
+            gameController.player1Color = playerRenderer.material.color;
+            for (int i = 0; i < 5; i++)
+            {
+                gameController.player1Stocks[i].color = new Color(newPlayer1Color.r, newPlayer1Color.g, newPlayer1Color.b);
+            }
+        }
+        if (gameObject.layer == 31)
+        {
+            gameController.player2Color = playerRenderer.material.color;
+            for (int i = 0; i < 5; i++)
+            {
+                gameController.player2Stocks[i].color = new Color(newPlayer2Color.r, newPlayer2Color.g, newPlayer2Color.b);
+            }
         }
     }
 
@@ -97,16 +101,12 @@ public class PlayerController : MonoBehaviour
                 Rigidbody playerCol = player1.GetComponent<Rigidbody>();
                 playerCol.velocity = playerCol.velocity * multiplier;
             }
-            // bruh = Instantiate(audioController.audioSources[0]);
-            // bruh.GetComponent<AudioSource>().Play(0);
-            // StartCoroutine(SoundTimer());
-            // Destroy(bruh);
         }
     }
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "PowerUp" && touchingPowerUp == false)
+        if (collision.gameObject.tag == "PowerUp" && !touchingPowerUp)
         {
             touchingPowerUp = true;
             Instantiate(gameController.powerUpDisappear, new Vector3(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y, collision.gameObject.transform.position.z), Quaternion.identity);

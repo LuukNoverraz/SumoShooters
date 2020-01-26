@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class StoreController : MonoBehaviour
 {
     public Color color;
-    public Renderer renderer;
+    public Renderer targetPlayerRenderer;
     public Image image;
     public Sprite locked;
     public Sprite unlocked;
@@ -34,7 +32,7 @@ public class StoreController : MonoBehaviour
         {
             PlayerPrefs.SetInt("Sumocoins", PlayerPrefs.GetInt("Sumocoins", 0) - 1);
         }
-        renderer.material.color = color;
+        targetPlayerRenderer.material.color = color;
         image.sprite = checkmark;
         PlayerPrefs.SetFloat("ChosenColorR", color.r);
         PlayerPrefs.SetFloat("ChosenColorG", color.g);
@@ -58,7 +56,7 @@ public class StoreController : MonoBehaviour
                 item.GetComponent<Image>().sprite = locked;
             }
         }
-        renderer.material.color = color;
+        targetPlayerRenderer.material.color = color;
         image.sprite = checkmark;
         PlayerPrefs.SetFloat("ChosenColorR2", color.r);
         PlayerPrefs.SetFloat("ChosenColorG2", color.g);
