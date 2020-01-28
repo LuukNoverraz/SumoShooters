@@ -104,6 +104,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void EngeLoesoe()
+    {
+        Debug.Log("Enge Loesoe");
+    }
+
     void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "PowerUp" && !touchingPowerUp)
@@ -162,7 +167,7 @@ public class PlayerController : MonoBehaviour
         transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
         rb.mass = 0.05f;
         rb.constraints = RigidbodyConstraints.None;
-        playerController1.force = playerController2.force = 1.0f;
+        playerController1.force = playerController2.force = 0.75f;
         playerController1.slownessParticle.SetActive(false);
         playerController2.slownessParticle.SetActive(false);
         meshFilter.sharedMesh = gameController.Sphere.sharedMesh;

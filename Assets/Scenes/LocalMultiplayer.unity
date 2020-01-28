@@ -217,7 +217,7 @@ RectTransform:
   - {fileID: 862268262}
   - {fileID: 517350364}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -316,7 +316,7 @@ RectTransform:
   m_Children:
   - {fileID: 1063776073}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -410,7 +410,6 @@ GameObject:
   - component: {fileID: 265350176}
   - component: {fileID: 265350181}
   - component: {fileID: 265350182}
-  - component: {fileID: 265350183}
   m_Layer: 30
   m_Name: Player 1
   m_TagString: Players
@@ -505,7 +504,7 @@ Transform:
   m_Children:
   - {fileID: 815124235}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &265350181
 MonoBehaviour:
@@ -522,14 +521,14 @@ MonoBehaviour:
   player1: {fileID: 265350175}
   player2: {fileID: 712612788}
   rb: {fileID: 265350176}
-  force: 1
+  force: 0.75
   startZ: -2
   gameController: {fileID: 992521352}
   playerController1: {fileID: 265350181}
   playerController2: {fileID: 712612797}
   audioController: {fileID: 1154631883}
   playerRenderer: {fileID: 265350178}
-  multiplier: 2
+  multiplier: 2.5
   slownessParticle: {fileID: 815124232}
   meshFilter: {fileID: 265350179}
   boxCollider: {fileID: 265350182}
@@ -546,119 +545,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &265350183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265350175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5919d47ae5610b943a6d85da1d90fcfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  telecamera: {fileID: 534669904}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 1073741824
-  lunghezzaRaycast: 100
-  tocchiMassimiConsentiti: 2
-  onEnterContaComePremuto: 0
-  onPressNonChiamaOnEnter: 0
-  canPassThroughUI: 0
-  runOnFixedUpdate: 0
-  permettiSoloTocchiVirtuali: 0
-  sogliaDistanzaDrag: 0.01
-  sogliaTempoTap: 0.26
-  sogliaTempoLongPress: 0.5
-  sogliaTempoSwipe: 0.3
-  sogliaDistanzaSwipe: 0.03
-  sogliaVelocitaSwipe: 0.2
-  sogliaTempoDoubleTap: 0.5
-  sogliaDistanzaDoubleTap: 0.03
-  permettiSoloUnGestureAllaVolta: 0
-  sogliaDistanzaPinch: 0.03
-  sogliaDistanzaPan: 0.02
-  sogliaDistanzaTocchiPan: 1
-  sogliaRotazione: 4
-  debug_log: 0
-  debug_grandezzaGizmo: 0.1
-  listaTocchi: []
-  listaGestures: []
-  listaIstanzeTap: []
-  eventiTocco:
-    onPress:
-      m_PersistentCalls:
-        m_Calls: []
-    onEnter:
-      m_PersistentCalls:
-        m_Calls: []
-    onKeep:
-      m_PersistentCalls:
-        m_Calls: []
-    onExit:
-      m_PersistentCalls:
-        m_Calls: []
-    onRelease:
-      m_PersistentCalls:
-        m_Calls: []
-    onBeginDrag:
-      m_PersistentCalls:
-        m_Calls: []
-    onDrag:
-      m_PersistentCalls:
-        m_Calls: []
-    onTap:
-      m_PersistentCalls:
-        m_Calls: []
-    onLongPress:
-      m_PersistentCalls:
-        m_Calls: []
-    onSwipe:
-      m_PersistentCalls:
-        m_Calls: []
-    onDoubleTap:
-      m_PersistentCalls:
-        m_Calls: []
-    onCancel:
-      m_PersistentCalls:
-        m_Calls: []
-  eventiGestures:
-    onGestureBegin:
-      m_PersistentCalls:
-        m_Calls: []
-    onGestureKeep:
-      m_PersistentCalls:
-        m_Calls: []
-    onPinchBegin:
-      m_PersistentCalls:
-        m_Calls: []
-    onPinchChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    onPanBegin:
-      m_PersistentCalls:
-        m_Calls: []
-    onPanChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    onRotateBegin:
-      m_PersistentCalls:
-        m_Calls: []
-    onRotateChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    onGestureEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    onGestureCancel:
-      m_PersistentCalls:
-        m_Calls: []
-  deltaTime: 0
-  myTrans: {fileID: 0}
-  is2dCollider: 0
-  eventSystem: {fileID: 0}
 --- !u!1 &350073580
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,7 +737,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: 70, z: 0}
 --- !u!1 &443852643
 GameObject:
@@ -882,12 +768,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fc98219a83dff145947365dc914d06e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TapThreshold: 0.2
+  TapThreshold: 0.001
   SwipeThreshold: 100
   ReferenceDpi: 200
   GuiLayers:
     serializedVersion: 2
-    m_Bits: 4294967291
+    m_Bits: 4294967295
   RecordFingers: 1
   RecordThreshold: 5
   RecordLimit: 10
@@ -908,7 +794,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &455520729
 GameObject:
@@ -1123,6 +1009,8 @@ GameObject:
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
   - component: {fileID: 534669906}
+  - component: {fileID: 534669908}
+  - component: {fileID: 534669907}
   m_Layer: 27
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1163,7 +1051,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 40
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 8.5
   m_Depth: -2
   m_CullingMask:
@@ -1192,7 +1080,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &534669906
 MonoBehaviour:
@@ -1209,6 +1097,85 @@ MonoBehaviour:
   player1: {fileID: 265350175}
   player2: {fileID: 712612788}
   gameController: {fileID: 992521352}
+--- !u!114 &534669907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 571b065edc65a4f41b4ea02b27b6113a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IgnoreStartedOverGui: 1
+  IgnoreIsOverGui: 0
+  RequiredSelectable: {fileID: 0}
+  onFinger:
+    m_PersistentCalls:
+      m_Calls: []
+  ScreenDepth:
+    Conversion: 1
+    Camera: {fileID: 534669904}
+    Object: {fileID: 0}
+    Layers:
+      serializedVersion: 2
+      m_Bits: 4294967291
+    Distance: 0
+  onPosition:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 534669906}
+        m_MethodName: FingerUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &534669908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb097c07812299498915a0a3e793843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IgnoreStartedOverGui: 0
+  RequiredSelectable: {fileID: 0}
+  onFinger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 534669906}
+        m_MethodName: FingerDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  ScreenDepth:
+    Conversion: 1
+    Camera: {fileID: 534669904}
+    Object: {fileID: 0}
+    Layers:
+      serializedVersion: 2
+      m_Bits: 4294967291
+    Distance: 0
+  onPosition:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &547361209
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,7 +1407,6 @@ GameObject:
   - component: {fileID: 712612789}
   - component: {fileID: 712612797}
   - component: {fileID: 712612794}
-  - component: {fileID: 712612795}
   m_Layer: 31
   m_Name: Player 2
   m_TagString: Players
@@ -1535,7 +1501,7 @@ Transform:
   m_Children:
   - {fileID: 1739556954}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &712612794
 BoxCollider:
@@ -1550,119 +1516,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &712612795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 712612788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5919d47ae5610b943a6d85da1d90fcfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  telecamera: {fileID: 534669904}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 2147483648
-  lunghezzaRaycast: 100
-  tocchiMassimiConsentiti: 2
-  onEnterContaComePremuto: 0
-  onPressNonChiamaOnEnter: 0
-  canPassThroughUI: 0
-  runOnFixedUpdate: 0
-  permettiSoloTocchiVirtuali: 0
-  sogliaDistanzaDrag: 0.01
-  sogliaTempoTap: 0.26
-  sogliaTempoLongPress: 0.5
-  sogliaTempoSwipe: 0.3
-  sogliaDistanzaSwipe: 0.03
-  sogliaVelocitaSwipe: 0.2
-  sogliaTempoDoubleTap: 0.5
-  sogliaDistanzaDoubleTap: 0.03
-  permettiSoloUnGestureAllaVolta: 0
-  sogliaDistanzaPinch: 0.03
-  sogliaDistanzaPan: 0.02
-  sogliaDistanzaTocchiPan: 1
-  sogliaRotazione: 4
-  debug_log: 0
-  debug_grandezzaGizmo: 0.1
-  listaTocchi: []
-  listaGestures: []
-  listaIstanzeTap: []
-  eventiTocco:
-    onPress:
-      m_PersistentCalls:
-        m_Calls: []
-    onEnter:
-      m_PersistentCalls:
-        m_Calls: []
-    onKeep:
-      m_PersistentCalls:
-        m_Calls: []
-    onExit:
-      m_PersistentCalls:
-        m_Calls: []
-    onRelease:
-      m_PersistentCalls:
-        m_Calls: []
-    onBeginDrag:
-      m_PersistentCalls:
-        m_Calls: []
-    onDrag:
-      m_PersistentCalls:
-        m_Calls: []
-    onTap:
-      m_PersistentCalls:
-        m_Calls: []
-    onLongPress:
-      m_PersistentCalls:
-        m_Calls: []
-    onSwipe:
-      m_PersistentCalls:
-        m_Calls: []
-    onDoubleTap:
-      m_PersistentCalls:
-        m_Calls: []
-    onCancel:
-      m_PersistentCalls:
-        m_Calls: []
-  eventiGestures:
-    onGestureBegin:
-      m_PersistentCalls:
-        m_Calls: []
-    onGestureKeep:
-      m_PersistentCalls:
-        m_Calls: []
-    onPinchBegin:
-      m_PersistentCalls:
-        m_Calls: []
-    onPinchChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    onPanBegin:
-      m_PersistentCalls:
-        m_Calls: []
-    onPanChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    onRotateBegin:
-      m_PersistentCalls:
-        m_Calls: []
-    onRotateChanged:
-      m_PersistentCalls:
-        m_Calls: []
-    onGestureEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    onGestureCancel:
-      m_PersistentCalls:
-        m_Calls: []
-  deltaTime: 0
-  myTrans: {fileID: 0}
-  is2dCollider: 0
-  eventSystem: {fileID: 0}
 --- !u!114 &712612797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1678,83 +1531,17 @@ MonoBehaviour:
   player1: {fileID: 265350175}
   player2: {fileID: 712612788}
   rb: {fileID: 712612789}
-  force: 1
+  force: 0.75
   startZ: 2
   gameController: {fileID: 992521352}
   playerController1: {fileID: 265350181}
   playerController2: {fileID: 712612797}
   audioController: {fileID: 1154631883}
   playerRenderer: {fileID: 712612791}
-  multiplier: 2
+  multiplier: 2.5
   slownessParticle: {fileID: 1739556953}
   meshFilter: {fileID: 712612792}
   boxCollider: {fileID: 712612794}
---- !u!1 &740384592
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 740384595}
-  - component: {fileID: 740384594}
-  - component: {fileID: 740384593}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &740384593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740384592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &740384594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740384592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &740384595
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740384592}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &815124232
 GameObject:
   m_ObjectHideFlags: 0
@@ -6804,7 +6591,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &992521352
 MonoBehaviour:
@@ -6852,7 +6639,7 @@ MonoBehaviour:
   winBackground:
   - {fileID: 856358896}
   - {fileID: 1831738847}
-  maxScore: 5
+  maxScore: 500
   colorList:
   - 0.9811321
   - 0.1342115
@@ -7083,7 +6870,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1154631883
 MonoBehaviour:
@@ -7180,7 +6967,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 58.5, y: 180, z: 180}
 --- !u!1 &1326517280
 GameObject:
@@ -7480,6 +7267,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531787289}
   m_CullTransparentMesh: 0
+--- !u!1 &1581478029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1581478032}
+  - component: {fileID: 1581478031}
+  - component: {fileID: 1581478030}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1581478030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581478029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1581478031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581478029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1581478032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581478029}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1615174833 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8950475149986975525, guid: d8174d6d13766cc41842c4952cc3a846,
@@ -12573,7 +12426,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 58.5, y: 0, z: 0}
 --- !u!1 &1964592285
 GameObject:
