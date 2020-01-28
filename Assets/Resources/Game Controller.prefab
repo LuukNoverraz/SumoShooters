@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6780282133579511313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6780282133579511315}
+  - component: {fileID: 6780282133579511312}
+  m_Layer: 0
+  m_Name: Game Controller
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6780282133579511315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6780282133579511313}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6780282133579511312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6780282133579511313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fe7b83af69e1f43920ecce036c73e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPlayState: 0
+  pausePlayImage: {fileID: 0}
+  pauseSprite: {fileID: 21300000, guid: fcd192c8f338db44f94e754e4ab252bd, type: 3}
+  playSprite: {fileID: 21300000, guid: 97d5fa9b31fe1ab47a94a4bcdcaec965, type: 3}
+  pausing: 0
+  maps:
+  - {fileID: 4503172160404798441, guid: fc8a692bdccb08b47ab42a01934d4b9d, type: 3}
+  - {fileID: 4133877302815142805, guid: 91d3a580f3370bf43b2616e99a303663, type: 3}
+  - {fileID: 2932781180245090251, guid: 0905eec2100914d4cbee8a797e987641, type: 3}
+  - {fileID: 5685904483809968309, guid: 20b14c4a3a2fb124790f82cb0f8cdaa5, type: 3}
+  mainLightTransform: {fileID: 0}
+  borderTransform: {fileID: 0}
+  player1Stocks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  player2Stocks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  powerUpPrefab: {fileID: 4331763020256552407, guid: 7de4fa490a41b4c4fbce7fc95c21a11b,
+    type: 3}
+  redWin: {fileID: 0}
+  blueWin: {fileID: 0}
+  restartText:
+  - {fileID: 0}
+  - {fileID: 0}
+  winBackground:
+  - {fileID: 0}
+  - {fileID: 0}
+  maxScore: 5
+  colorList:
+  - 0.9811321
+  - 0.1342115
+  - 0.1342115
+  - 0.08962262
+  - 0.2860587
+  - 1
+  player1LifeLost: 0
+  player1DeathCount: 0
+  player2LifeLost: 0
+  player2DeathCount: 0
+  player1Color: {r: 0, g: 0, b: 0, a: 0}
+  player2Color: {r: 0, g: 0, b: 0, a: 0}
+  powerUpDisappear: {fileID: 3372688420898922966, guid: c524a8c03835ec64ab1f4d2c901c12b9,
+    type: 3}
+  powerUpSpawnLocations:
+  - {x: -2, y: 0.5, z: 0}
+  - {x: 2, y: 0.5, z: 0}
+  - {x: 0, y: 0.5, z: 2}
+  - {x: 0, y: 0.5, z: -2}
+  Sphere: {fileID: 9090893241970392042, guid: 8450d74b9a06d6b439cce68e6ec49e36, type: 3}
+  Cube: {fileID: 7307363337413571520, guid: 168b2a9890142d848b70e284b3b3fcbd, type: 3}
+  player1Blooper: {fileID: 0}
+  player2Blooper: {fileID: 0}
+  currentSumocoins: 0

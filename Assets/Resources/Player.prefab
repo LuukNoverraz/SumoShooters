@@ -129,8 +129,8 @@ MonoBehaviour:
   player1: {fileID: 2067983532301496887}
   player2: {fileID: 0}
   rb: {fileID: 2067983532301496878}
-  force: 1
-  startZ: -2
+  force: 0.75
+  startZ: 0
   gameController: {fileID: 0}
   playerController1: {fileID: 2067983532301496877}
   playerController2: {fileID: 0}

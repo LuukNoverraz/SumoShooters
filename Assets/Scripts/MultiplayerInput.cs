@@ -14,6 +14,7 @@ public class MultiplayerInput : MonoBehaviourPun
         {
             if ((Input.GetMouseButton(0) || Input.GetMouseButtonDown(0)) && !gameController.pausing)
             {
+                Debug.Log("yeahhhh");
                 GetComponent<PlayerController>().BeginShoot();
             }
             if (Input.GetMouseButtonUp(0))
