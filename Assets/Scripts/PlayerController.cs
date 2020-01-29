@@ -10,24 +10,29 @@ public class PlayerController : MonoBehaviour
     public float startZ;
     private Vector2 startSwipe;
     private Vector2 endSwipe;
-    public GameController gameController;
     private float shootStyle;
-    public PlayerController playerController1;
-    public PlayerController playerController2;
-    public AudioController audioController;
+    private GameController gameController;
+    private PlayerController playerController1;
+    private PlayerController playerController2;
     public Renderer playerRenderer;
-    public float multiplier;
+    [SerializeField] private float multiplier;
     private bool touchingPowerUp = false;
     private float waitTime;
     private int randomPowerUp;
     public GameObject slownessParticle;
     public MeshFilter meshFilter;
     public Collider boxCollider;
-    Color newPlayer1Color;
-    Color newPlayer2Color;
+    private Color newPlayer1Color;
+    private Color newPlayer2Color;
 
     void Start()
     {
+        // Get other scripts
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        playerController1 = player1.GetComponent<PlayerController>();
+        playerController2 = player2.GetComponent<PlayerController>();
+
+        // Get players chosen color from player preferences
         if (PlayerPrefs.HasKey("ChosenColorR") && gameObject.layer == 30)
         {
             newPlayer1Color = new Color(PlayerPrefs.GetFloat("ChosenColorR", 0.0f), PlayerPrefs.GetFloat("ChosenColorG", 0.0f), PlayerPrefs.GetFloat("ChosenColorB", 0.0f));
@@ -38,7 +43,8 @@ public class PlayerController : MonoBehaviour
             newPlayer2Color = new Color(PlayerPrefs.GetFloat("ChosenColorR2", 0.0f), PlayerPrefs.GetFloat("ChosenColorG2", 0.0f), PlayerPrefs.GetFloat("ChosenColorB2", 0.0f));
             playerRenderer.material.color = newPlayer2Color;
         }
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+
+        // Get shoot style from preferences, set to push if none are found
         if (PlayerPrefs.HasKey("ShootStyle"))
         {
             shootStyle = PlayerPrefs.GetFloat("ShootStyle", 0.0f);
@@ -47,9 +53,8 @@ public class PlayerController : MonoBehaviour
         {
             shootStyle = 1.0f;
         }
-        playerController1 = player1.GetComponent<PlayerController>();
-        playerController2 = player2.GetComponent<PlayerController>();
-        audioController = GameObject.Find("Audio Controller").GetComponent<AudioController>();
+
+        // Change life icons (stocks) from selected color
         if (gameObject.layer == 30)
         {
             gameController.player1Color = playerRenderer.material.color;
@@ -70,18 +75,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // Check for death, code should be changed soon (this is inefficient)
         if (transform.position.y < -5.0f)
         {
             transform.position = new Vector3(0.0f, 2.0f, startZ);
             rb.velocity = Vector3.zero;
             if (gameObject.layer == 30)
             {
-                gameController.player1LifeLost = true;
                 gameController.LifeLostPlayer1();
             }
             if (gameObject.layer == 31)
             {
-                gameController.player2LifeLost = true;
                 gameController.LifeLostPlayer2();
             }
         }
@@ -89,6 +93,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        // Multiply other players force by impact (so other players get knocked off the map easier)
         if (collision.gameObject.tag == "Players")
         {
             if (gameObject.layer == 30)
@@ -104,13 +109,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void EngeLoesoe()
-    {
-        Debug.Log("Enge Loesoe");
-    }
-
     void OnTriggerEnter(Collider collision)
     {
+        // Check for powerup
         if (collision.gameObject.tag == "PowerUp" && !touchingPowerUp)
         {
             touchingPowerUp = true;
@@ -163,6 +164,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator PowerUpTimer() 
     {
+        // Changes revert back to normal after timer
         yield return new WaitForSeconds(waitTime);
         transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
         rb.mass = 0.05f;
@@ -177,6 +179,7 @@ public class PlayerController : MonoBehaviour
     
     IEnumerator PowerUpParticleTimer()
     {
+        // Powerup and particle disappear after touching
         yield return new WaitForSeconds(waitTime);
         Destroy(GameObject.FindGameObjectWithTag("PowerUp"));
         yield return new WaitForSeconds(waitTime);
@@ -185,6 +188,7 @@ public class PlayerController : MonoBehaviour
     
     public void BeginShoot()
     {
+        // Code gets called from either TouchInput or MultiplayerInput
         if (!gameController.pausing)
         {
             startSwipe = Camera.main.ScreenToViewportPoint(Input.mousePosition);
@@ -202,6 +206,7 @@ public class PlayerController : MonoBehaviour
     
     void Swipe()
     {
+        // Add force to player using begin and end point
         Vector3 swipe = endSwipe - startSwipe;
         swipe.z = swipe.y;
         swipe.y = 0.0f;

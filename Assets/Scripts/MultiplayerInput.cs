@@ -12,6 +12,7 @@ public class MultiplayerInput : MonoBehaviourPun
     {
         if (photonView.IsMine)
         {
+            Debug.Log("Well boys we did it.");
             if ((Input.GetMouseButton(0) || Input.GetMouseButtonDown(0)) && !gameController.pausing)
             {
                 Debug.Log("yeahhhh");

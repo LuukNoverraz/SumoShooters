@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class OnlineMenu : MonoBehaviourPunCallbacks
 {
+    // This script is used to connect players to a room in the online menu
+    
     [SerializeField] private GameObject findOpponentPanel = null;
     [SerializeField] private GameObject waitingStatusPanel = null;
     [SerializeField] private Text waitingStatusText = null;
     private bool isConnecting = false;
     // Change GameVersion if releasing new version of game
-    private const string GameVersion = "0.2";
+    private const string GameVersion = "0.3";
     private const int MaxPlayersPerRoom = 2;
 
     void Awake() => PhotonNetwork.AutomaticallySyncScene = true;

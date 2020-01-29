@@ -29,9 +29,7 @@ public class GameController : MonoBehaviour
     public Image[] winBackground;
     public int maxScore;
     public float[] colorList;
-    [HideInInspector] public bool player1LifeLost = false;
     [HideInInspector] public int player1DeathCount = 0;
-    [HideInInspector] public bool player2LifeLost = false;
     [HideInInspector] public int player2DeathCount = 0;
     bool spawning = false;
     public Color player1Color;
@@ -150,20 +148,18 @@ public class GameController : MonoBehaviour
 
     public void LifeLostPlayer1()
     {
-        if (player1LifeLost = true && player1DeathCount < 5)
+        if (player1DeathCount < maxScore)
         {
             Destroy(player1Stocks[player1DeathCount]);
-            player1LifeLost = false;
             player1DeathCount++;
         }
     }
 
     public void LifeLostPlayer2()
     {
-        if (player2LifeLost = true && player2DeathCount < 5)
+        if (player2DeathCount < maxScore)
         {
             Destroy(player2Stocks[player2DeathCount]);
-            player2LifeLost = false;
             player2DeathCount++;
         }
     }
