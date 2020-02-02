@@ -54,8 +54,6 @@ MonoBehaviour:
   - {fileID: 4133877302815142805, guid: 91d3a580f3370bf43b2616e99a303663, type: 3}
   - {fileID: 2932781180245090251, guid: 0905eec2100914d4cbee8a797e987641, type: 3}
   - {fileID: 5685904483809968309, guid: 20b14c4a3a2fb124790f82cb0f8cdaa5, type: 3}
-  mainLightTransform: {fileID: 0}
-  borderTransform: {fileID: 0}
   player1Stocks:
   - {fileID: 0}
   - {fileID: 0}
@@ -70,8 +68,8 @@ MonoBehaviour:
   - {fileID: 0}
   powerUpPrefab: {fileID: 4331763020256552407, guid: 7de4fa490a41b4c4fbce7fc95c21a11b,
     type: 3}
-  redWin: {fileID: 0}
-  blueWin: {fileID: 0}
+  player1Win: {fileID: 0}
+  player2Win: {fileID: 0}
   restartText:
   - {fileID: 0}
   - {fileID: 0}
@@ -79,16 +77,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   maxScore: 5
-  colorList:
-  - 0.9811321
-  - 0.1342115
-  - 0.1342115
-  - 0.08962262
-  - 0.2860587
-  - 1
-  player1LifeLost: 0
   player1DeathCount: 0
-  player2LifeLost: 0
   player2DeathCount: 0
   player1Color: {r: 0, g: 0, b: 0, a: 0}
   player2Color: {r: 0, g: 0, b: 0, a: 0}
@@ -101,8 +90,6 @@ MonoBehaviour:
   - {x: 0, y: 0.5, z: -2}
   Sphere: {fileID: 9090893241970392042, guid: 8450d74b9a06d6b439cce68e6ec49e36, type: 3}
   Cube: {fileID: 7307363337413571520, guid: 168b2a9890142d848b70e284b3b3fcbd, type: 3}
-  player1Blooper: {fileID: 0}
-  player2Blooper: {fileID: 0}
   currentSumocoins: 0
 --- !u!114 &4405474104670439135
 MonoBehaviour:

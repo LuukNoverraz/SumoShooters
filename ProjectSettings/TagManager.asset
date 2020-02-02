@@ -12,6 +12,10 @@ TagManager:
   - Bought
   - Buyable2
   - Bought2
+  - Player 1 Win
+  - Player 2 Win
+  - Player 1 Win Restart Text
+  - Player 2 Win Restart Text
   layers:
   - Default
   - TransparentFX

@@ -14,6 +14,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject players;
     [SerializeField] private RectTransform[] colors;
     [SerializeField] private RectTransform[] colorLocks;
+    [SerializeField] private RectTransform[] colorList;
     [SerializeField] private RectTransform sumoCoins;
     [SerializeField] private Text sumoText;
     [SerializeField] private RectTransform customizationBackButton;
@@ -23,11 +24,11 @@ public class MenuController : MonoBehaviour
     
     void Start()
     {
+        // Set sizes correctly for all information on the main menu
         customization.sizeDelta = background.sizeDelta = new Vector2(Screen.width, Screen.height);
         players.transform.position = offScreen;
         sumoText.text = gameController.currentSumocoins.ToString();
         onlineMenu.localPosition = settingsMenu.localPosition = customization.localPosition = offScreen;
-        madeByText.localPosition = new Vector3(0, -Screen.height + (Screen.height / 2) + 40, 0);
     }
     
     private void mainMenuOffScreen()
@@ -51,8 +52,15 @@ public class MenuController : MonoBehaviour
         onlineMenu.localPosition = Vector3.zero;
     }
 
+    public void OnlineBack()
+    {
+        mainMenuOnScreen();
+        onlineMenu.localPosition = offScreen;
+    }
+
     private void CustomizationButton()
     {
+        // Display and set all sizes correctly for customization components
         mainMenuOffScreen();
         customization.localPosition = Vector3.zero;
         players.transform.position = Vector3.zero;
@@ -60,8 +68,9 @@ public class MenuController : MonoBehaviour
         colors[0].sizeDelta = colorLocks[0].sizeDelta = new Vector2(Screen.width, 232.5f);
         colors[1].localPosition = colorLocks[1].localPosition = new Vector3(0, (Screen.height / 2) - (Screen.height / 10), 0);
         colors[1].sizeDelta = colorLocks[1].sizeDelta = new Vector2(Screen.width, 232.5f);
-        sumoCoins.localPosition = new Vector2(((-Screen.width / 2) + 80), 0);
-        customizationBackButton.localPosition = new Vector2(((Screen.width / 2) - 120), 0);
+        colorList[0].sizeDelta = colorList[1].sizeDelta = new Vector2(Screen.width + 200, 232.5f);
+        // sumoCoins.localPosition = new Vector2(((-Screen.width / 2) + 80), 0);
+        // customizationBackButton.localPosition = new Vector2(((Screen.width / 2) - 120), 0);
     }
 
     private void CustomizationBack()

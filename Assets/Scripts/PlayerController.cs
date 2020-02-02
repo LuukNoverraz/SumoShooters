@@ -38,10 +38,21 @@ public class PlayerController : MonoBehaviour
             newPlayer1Color = new Color(PlayerPrefs.GetFloat("ChosenColorR", 0.0f), PlayerPrefs.GetFloat("ChosenColorG", 0.0f), PlayerPrefs.GetFloat("ChosenColorB", 0.0f));
             playerRenderer.material.color = newPlayer1Color;
         }
+        // Set player color to default if no preference has been set previously
+        else 
+        {
+            newPlayer1Color = new Color(0.9803922f, 0.08627451f, 0.08627451f, 1.0f);
+            playerRenderer.material.color = newPlayer1Color;
+        }
         if (PlayerPrefs.HasKey("ChosenColorR2") && gameObject.layer == 31)
         {
             newPlayer2Color = new Color(PlayerPrefs.GetFloat("ChosenColorR2", 0.0f), PlayerPrefs.GetFloat("ChosenColorG2", 0.0f), PlayerPrefs.GetFloat("ChosenColorB2", 0.0f));
             playerRenderer.material.color = newPlayer2Color;
+        }
+        else
+        {
+            newPlayer2Color = new Color(0.0f, 0.172549f, 0.4901961f, 1.0f);
+            playerRenderer.material.color = newPlayer1Color;
         }
 
         // Get shoot style from preferences, set to push if none are found
@@ -69,24 +80,6 @@ public class PlayerController : MonoBehaviour
             for (int i = 0; i < 5; i++)
             {
                 gameController.player2Stocks[i].color = new Color(newPlayer2Color.r, newPlayer2Color.g, newPlayer2Color.b);
-            }
-        }
-    }
-
-    void Update()
-    {
-        // Check for death, code should be changed soon (this is inefficient)
-        if (transform.position.y < -5.0f)
-        {
-            transform.position = new Vector3(0.0f, 2.0f, startZ);
-            rb.velocity = Vector3.zero;
-            if (gameObject.layer == 30)
-            {
-                gameController.LifeLostPlayer1();
-            }
-            if (gameObject.layer == 31)
-            {
-                gameController.LifeLostPlayer2();
             }
         }
     }
